@@ -11,6 +11,7 @@
 		8E8300422771FEC2009CCDA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300412771FEC2009CCDA8 /* Assets.xcassets */; };
 		8E8300452771FEC2009CCDA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300432771FEC2009CCDA8 /* LaunchScreen.storyboard */; };
 		8E8300502771FEC2009CCDA8 /* SoundsBinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */; };
+		8EDE38E2277201E20065C06A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE38E1277201E20065C06A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsBinderTests.swift; sourceTree = "<group>"; };
 		8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EDE38E1277201E20065C06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		8E83002C2771FEBF009CCDA8 = {
 			isa = PBXGroup;
 			children = (
+				8EDE38E1277201E20065C06A /* README.md */,
 				8E8300372771FEC0009CCDA8 /* SoundsBinder */,
 				8E83004E2771FEC2009CCDA8 /* SoundsBinderTests */,
 				8E8300362771FEC0009CCDA8 /* Products */,
@@ -224,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDE38E2277201E20065C06A /* README.md in Resources */,
 				8E8300452771FEC2009CCDA8 /* LaunchScreen.storyboard in Resources */,
 				8E8300422771FEC2009CCDA8 /* Assets.xcassets in Resources */,
 			);
