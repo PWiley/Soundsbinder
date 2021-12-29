@@ -12,6 +12,11 @@
 		8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */; };
 		8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */; };
 		8E2253F5277B008B002DFEB8 /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F2277B008B002DFEB8 /* ArtistsViewController.swift */; };
+		8E225409277CFC7E002DFEB8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E225404277CFC7E002DFEB8 /* HTTPClient.swift */; };
+		8E22540A277CFC7E002DFEB8 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E225405277CFC7E002DFEB8 /* JSONParser.swift */; };
+		8E22540B277CFC7E002DFEB8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E225406277CFC7E002DFEB8 /* Endpoint.swift */; };
+		8E22540C277CFC7E002DFEB8 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E225407277CFC7E002DFEB8 /* RequestBuilder.swift */; };
+		8E22540D277CFC7E002DFEB8 /* RequestCancellationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E225408277CFC7E002DFEB8 /* RequestCancellationToken.swift */; };
 		8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8300382771FEC0009CCDA8 /* AppDelegate.swift */; };
 		8E8300422771FEC2009CCDA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300412771FEC2009CCDA8 /* Assets.xcassets */; };
 		8E8300452771FEC2009CCDA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300432771FEC2009CCDA8 /* LaunchScreen.storyboard */; };
@@ -47,6 +52,11 @@
 		8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewModel.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsRepository.swift; path = SoundsBinder/Sources/App/Artists/ArtistsRepository.swift; sourceTree = SOURCE_ROOT; };
 		8E2253F2277B008B002DFEB8 /* ArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewController.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewController.swift; sourceTree = SOURCE_ROOT; };
+		8E225404277CFC7E002DFEB8 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		8E225405277CFC7E002DFEB8 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		8E225406277CFC7E002DFEB8 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8E225407277CFC7E002DFEB8 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		8E225408277CFC7E002DFEB8 /* RequestCancellationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCancellationToken.swift; sourceTree = "<group>"; };
 		8E8300352771FEC0009CCDA8 /* SoundsBinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundsBinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8300382771FEC0009CCDA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E8300412771FEC2009CCDA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +198,11 @@
 		8EDE38ED2772051D0065C06A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8E225406277CFC7E002DFEB8 /* Endpoint.swift */,
+				8E225404277CFC7E002DFEB8 /* HTTPClient.swift */,
+				8E225405277CFC7E002DFEB8 /* JSONParser.swift */,
+				8E225407277CFC7E002DFEB8 /* RequestBuilder.swift */,
+				8E225408277CFC7E002DFEB8 /* RequestCancellationToken.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -341,11 +356,16 @@
 				8EDE38F8277206400065C06A /* AlbumViewModel.swift in Sources */,
 				8EDE38F62772062F0065C06A /* AlbumViewController.swift in Sources */,
 				8E2253F5277B008B002DFEB8 /* ArtistsViewController.swift in Sources */,
+				8E22540C277CFC7E002DFEB8 /* RequestBuilder.swift in Sources */,
+				8E22540A277CFC7E002DFEB8 /* JSONParser.swift in Sources */,
 				8EDE38FA277206570065C06A /* AlbumRepository.swift in Sources */,
+				8E22540D277CFC7E002DFEB8 /* RequestCancellationToken.swift in Sources */,
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
 				8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */,
+				8E225409277CFC7E002DFEB8 /* HTTPClient.swift in Sources */,
 				8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */,
 				8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */,
+				8E22540B277CFC7E002DFEB8 /* Endpoint.swift in Sources */,
 				8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
