@@ -14,7 +14,6 @@ final class ArtistsViewModel {
     private let repository: ArtistsRepositoryType
 
     struct Item {
-        
     }
 
     // MARK: - Init

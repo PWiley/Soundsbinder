@@ -17,3 +17,11 @@ protocol ArtistsRepositoryType {
         callback: InputClosure<Result<ArtistsResponse, ArtistsRepositoryError>>
     )
 }
+
+final class ArtistsRepository: ArtistsRepositoryType {
+    func searchArtists(for name: String, callback: (Result<ArtistsResponse, ArtistsRepositoryError>) -> Void) {
+        
+    }
+    
+    
+}
