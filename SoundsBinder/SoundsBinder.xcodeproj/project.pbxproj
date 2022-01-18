@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */; };
+		876132A727970B1200CBE3BA /* ArtistsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */; };
 		8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */; };
 		8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253E2277AF075002DFEB8 /* Helper.swift */; };
 		8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsEndpoint.swift; sourceTree = "<group>"; };
+		876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewModelTests.swift; sourceTree = "<group>"; };
 		8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponse.swift; sourceTree = "<group>"; };
 		8E2253E2277AF075002DFEB8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewModel.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -101,6 +105,7 @@
 		8E2253E1277AEEEC002DFEB8 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */,
 				8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */,
 			);
 			path = Domain;
@@ -138,6 +143,7 @@
 		8E83004E2771FEC2009CCDA8 /* SoundsBinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */,
 				8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */,
 			);
 			path = SoundsBinderTests;
@@ -364,6 +370,7 @@
 				8E5E1B1727831362007905AF /* Endpoint.swift in Sources */,
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
 				8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */,
+				876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */,
 				8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */,
 				8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */,
 				8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */,
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E8300502771FEC2009CCDA8 /* SoundsBinderTests.swift in Sources */,
+				876132A727970B1200CBE3BA /* ArtistsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
