@@ -1,6 +1,6 @@
 //
 //  ArtistsViewModel.swift
-//  Deezer
+//  SoundsBinder
 //
 //  Created by Patrick Wiley on 02/12/2021.
 //
@@ -12,8 +12,10 @@ final class ArtistsViewModel {
     // MARK: - Properties
 
     private let repository: ArtistsRepositoryType
-
-    struct Item {
+    private var artists: [Artist] = [] {
+        didSet {
+            self.items?(artists)
+        }
     }
 
     // MARK: - Init
@@ -23,26 +25,26 @@ final class ArtistsViewModel {
     }
 
     // MARK: - Inputs
-
+    
     func viewDidLoad() {
-        artists?([])
+        artists = []
+    }
+
+    func viewWillAppear() {
     }
 
     func didPressSearch(for name: String) {
-        repository.searchArtists(
-            for: name,
-               callback: { [weak self] result in
-                   switch result {
-                   case .success(let response):
-                       self?.artists?([Item()])
-                   case .failure(let error):
-                       print(error)
-                   }
-               }
-        )
+        repository.searchArtists(for: name) { [ weak self] result in
+            switch result {
+            case .success(let artists):
+                self?.artists = artists
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Outputs
 
-    var artists: (([Item]) -> Void)?
+    var items: (([Artist]) -> Void)?
 }
