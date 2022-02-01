@@ -16,6 +16,7 @@ final class ArtistsEndpoint: Endpoint {
     init(name: String) {
         self.method = .GET
         self.path = "https://api.deezer.com/search"
-        self.queryParameters = ["q": "artist:\(name)"]
+        self.queryParameters = ["q": "\(name)"]
+        
     }
 }
