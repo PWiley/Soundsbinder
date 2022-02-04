@@ -12,7 +12,7 @@ struct ArtistsResponse: Codable {
     let data: [Datum]
     let total: Int
     let next: String
-    
+
     // MARK: - Datum
     struct Datum: Codable {
         let id: Int

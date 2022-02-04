@@ -12,11 +12,16 @@ final class ArtistsViewController: UIViewController {
     
     // MARK: - Properties
     
+    let viewModel:  ArtistsViewModel!
+    
+    private lazy var source = ArtistsDataSource(collectionView: collectionView,
+                                                viewModel: viewModel)
+    
     private lazy var button: UIButton = {
         var button = UIButton()
         button.backgroundColor = .green
         button.setTitle("Search", for: .normal)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(searchArtist), for: .touchUpInside)
         return button
     }()
     
@@ -34,15 +39,14 @@ final class ArtistsViewController: UIViewController {
         searchStackView.spacing = 10
         return searchStackView
     }()
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        // Adding Generic custom cell
-        return tableView
+        
+    private lazy var collectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = .init()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 40, height: 40)
+        let collectionView = UICollectionView(frame: self.view.frame,collectionViewLayout: layout)
+        collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: "Cell")
+        return collectionView
     }()
     
     private lazy var stackView: UIStackView = {
@@ -52,10 +56,10 @@ final class ArtistsViewController: UIViewController {
         stackView.axis = .vertical
         stackView.backgroundColor = .blue
         stackView.spacing = 10
+        
         return stackView
     }()
     
-    private let viewModel: ArtistsViewModel
     
     private var items: [Artist] = []
     
@@ -75,16 +79,15 @@ final class ArtistsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        bindViewModel()
+        bind(to: viewModel)
         viewModel.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        bindViewModel()
+        bind(to: viewModel)
         viewModel.viewWillAppear()
     }
-    
     
     // MARK: - Private
     
@@ -95,7 +98,6 @@ final class ArtistsViewController: UIViewController {
             $0.top.equalToSuperview().inset(-10)
             $0.bottom.equalToSuperview().inset(-10)
             $0.width.equalTo(80)
-            
         }
         searchStackView.addSubview(textField)
         textField.snp.makeConstraints {
@@ -105,14 +107,13 @@ final class ArtistsViewController: UIViewController {
         }
         stackView.addSubview(searchStackView)
         searchStackView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview().inset(-20)
             $0.height.equalTo(70)
         }
-        stackView.addSubview(tableView)
-        tableView.snp.makeConstraints {
+        stackView.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(searchStackView.snp.bottom)
             $0.left.right.bottom.equalToSuperview()
-            
         }
         view.addSubview(stackView)
         stackView.snp.makeConstraints {
@@ -121,35 +122,21 @@ final class ArtistsViewController: UIViewController {
         }
     }
     
-    private func bindViewModel() {
+    private func bind(to viewModel: ArtistsViewModel) {
         viewModel.items = { [weak self] items in
             DispatchQueue.main.async {
-                self?.items = items
-                self?.tableView.reloadData()
+                self?.source.update(with: items)
+                self?.collectionView.reloadData()
             }
         }
     }
+
     // MARK: - Actions
     
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func searchArtist(sender: UIButton!) {
         guard let name = textField.text else { return }
         viewModel.didPressSearch(for: name)
     }
-}
-
-extension ArtistsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let element = self.items[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = element.name
-        return cell
-    }
-    
-    
 }
 
 

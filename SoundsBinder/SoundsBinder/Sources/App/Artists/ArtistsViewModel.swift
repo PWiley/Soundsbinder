@@ -14,10 +14,10 @@ final class ArtistsViewModel {
     private let repository: ArtistsRepositoryType
     private var artists: [Artist] = [] {
         didSet {
-            self.items?(artists)
+            items?(artists)
+            }
         }
-    }
-
+    
     // MARK: - Init
 
     init(repository: ArtistsRepositoryType) {
@@ -37,6 +37,7 @@ final class ArtistsViewModel {
         repository.searchArtists(for: name) { [ weak self] result in
             switch result {
             case .success(let artists):
+                print(artists)
                 self?.artists = artists
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
@@ -44,7 +45,12 @@ final class ArtistsViewModel {
         }
     }
 
+    func didPressCellForDetail(indexPath: Int) {
+        
+    }
+
     // MARK: - Outputs
 
     var items: (([Artist]) -> Void)?
+    
 }

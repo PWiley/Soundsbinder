@@ -50,7 +50,7 @@ final class ArtistsRepository: ArtistsRepositoryType {
         }
         switch result {
         case .success(let response):
-            return response.data.map { Artist(item: $0.artist) }
+            return response.artists.map { Artist(item: $0) }
         case .failure(let error):
             //assertionFailure(error.localizedDescription)
             print(error)
@@ -60,16 +60,9 @@ final class ArtistsRepository: ArtistsRepositoryType {
 }
 
 extension Artist {
-    init(item: ArtistsResponse.Datum.Artist) {
+    init(item: ArtistsResponse.Artist) {
         self.id = item.id
         self.name = item.name
-        self.link = item.link
-        self.picture = item.picture
-        self.pictureSmall = item.pictureSmall
-        self.pictureMedium = item.pictureMedium
-        self.pictureBig = item.pictureBig
-        self.pictureXl = item.pictureXl
-        self.tracklist = item.tracklist
-//        self.type = item.type
+        self.pictureMedium = item.pictureURLString
     }
 }
