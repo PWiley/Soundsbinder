@@ -2,8 +2,7 @@
 //  ArtistsViewModelTests.swift
 //  SoundsBinderTests
 //
-//  Created by Patrick Wiley on 12.01.22.
-//
+
 import Foundation
 import XCTest
 @testable import SoundsBinder
@@ -18,6 +17,7 @@ final class ArtistsViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
     }
 
     // MARK: - Tests
@@ -33,6 +33,7 @@ final class ArtistsViewModelTests: XCTestCase {
         }
         
         viewModel.viewDidLoad()
+
         self.waitForExpectations(timeout: 1.0, handler: nil)
     }
     
@@ -45,7 +46,9 @@ final class ArtistsViewModelTests: XCTestCase {
             XCTAssertEqual(25, items.count)
             expectation.fulfill()
         }
+
         viewModel.didPressSearch(for: "Gainsbourg")
+
         self.waitForExpectations(timeout: 2.0, handler: nil)
     }
 }
@@ -76,7 +79,7 @@ extension MockArtistRepoSitory.Responses {
     fileprivate static var failure: MockArtistRepoSitory.Responses {
         .init(onSearchArtist: .failure(MockError.error))
     }
-    private static let mockArtists = try! JSONDecoder().decode(ArtistsResponse.self, from: MockData.artistsList).data.map { Artist(item: $0.artist) }
+    private static let mockArtists = try! JSONDecoder().decode(ArtistsResponse.Artist.self, from: MockData.artistsList).artists.map { Artist(item: $0.artist) }
     private enum MockError: Error {
         case error
     }

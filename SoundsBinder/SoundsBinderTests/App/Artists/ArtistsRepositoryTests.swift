@@ -15,7 +15,20 @@ final class ArtistsRepositoryTests: XCTestCase {
     
     private var repository: ArtistsRepository!
     
+    // MARK: - Setup
+    
+    override func setUp() {
+        super.setUp()
+    }
+    
     // MARK: - Tests
     
+    func testGivenRepository_WhenViewModelDidSearchArtist_AndSuccess_thenDataIsNotNil() {
+        
+    }
+    
+    func testGivenRepository_WhenViewModelDidSearchArtist_AndFailure_thenThereIsAnError() {
+        
+    }
     
 }
