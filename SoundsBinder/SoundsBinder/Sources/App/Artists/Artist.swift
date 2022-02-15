@@ -10,19 +10,19 @@ import Foundation
 struct Artist {
     let id: Int
     let name: String
-    let link, picture: String
-    let pictureSmall, pictureMedium, pictureBig, pictureXl: String
-    let tracklist: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, link, picture
-        case pictureSmall = "picture_small"
-        case pictureMedium = "picture_medium"
-        case pictureBig = "picture_big"
-        case pictureXl = "picture_xl"
-        case tracklist
-    }
- 
+    let pictureMedium: String
+
 }
 
+struct VisibleArtist: Equatable {
+    let name: String
+    let pictureURLString: String
+}
+
+extension VisibleArtist {
+    init(artist: Artist) {
+        self.name = artist.name
+        self.pictureURLString = artist.pictureMedium
+    }
+}
 
