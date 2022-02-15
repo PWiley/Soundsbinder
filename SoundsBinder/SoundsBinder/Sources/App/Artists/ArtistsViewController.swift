@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class ArtistsViewController: UIViewController {
-    
+   
     // MARK: - Properties
     
     let viewModel:  ArtistsViewModel!
@@ -17,28 +17,7 @@ final class ArtistsViewController: UIViewController {
     private lazy var source = ArtistsDataSource(collectionView: collectionView,
                                                 viewModel: viewModel)
     
-    private lazy var button: UIButton = {
-        var button = UIButton()
-        button.backgroundColor = .green
-        button.setTitle("Search", for: .normal)
-        button.addTarget(self, action: #selector(searchArtist), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var textField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .red
-        return textField
-    }()
-    
-    private lazy var searchStackView: UIStackView = {
-        var searchStackView = UIStackView()
-        searchStackView.distribution = .equalSpacing
-        searchStackView.alignment = .fill
-        searchStackView.axis = .horizontal
-        searchStackView.spacing = 10
-        return searchStackView
-    }()
+    private lazy var searchController = UISearchController(searchResultsController: nil)
         
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = .init()
@@ -48,19 +27,7 @@ final class ArtistsViewController: UIViewController {
         collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: "Cell")
         return collectionView
     }()
-    
-    private lazy var stackView: UIStackView = {
-        var stackView = UIStackView()
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .fill
-        stackView.axis = .vertical
-        stackView.backgroundColor = .blue
-        stackView.spacing = 10
-        
-        return stackView
-    }()
-    
-    
+
     private var items: [Artist] = []
     
     // MARK: - Init
@@ -81,44 +48,36 @@ final class ArtistsViewController: UIViewController {
         setupLayout()
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         bind(to: viewModel)
         viewModel.viewWillAppear()
+        view.backgroundColor = .white
+        
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Artist Search"
+        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.searchController = searchController
+
+        searchController.searchBar.delegate = self
+
+        definesPresentationContext = true
     }
     
     // MARK: - Private
     
     private func setupLayout() {
-        searchStackView.addSubview(button)
-        button.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(-20)
-            $0.top.equalToSuperview().inset(-10)
-            $0.bottom.equalToSuperview().inset(-10)
-            $0.width.equalTo(80)
-        }
-        searchStackView.addSubview(textField)
-        textField.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.leading.equalTo(button.snp.trailing)
-        }
-        stackView.addSubview(searchStackView)
-        searchStackView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(-20)
-            $0.height.equalTo(70)
-        }
-        stackView.addSubview(collectionView)
+    
+        view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(searchStackView.snp.bottom)
-            $0.left.right.bottom.equalToSuperview()
-        }
-        view.addSubview(stackView)
-        stackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.bottom.trailing.equalToSuperview()
+            //$0.top.equalTo(searchController.searchBar.snp.top)
+            $0.top.leading.bottom.trailing.equalToSuperview()
         }
     }
     
@@ -133,10 +92,14 @@ final class ArtistsViewController: UIViewController {
 
     // MARK: - Actions
     
-    @objc func searchArtist(sender: UIButton!) {
-        guard let name = textField.text else { return }
-        viewModel.didPressSearch(for: name)
-    }
 }
 
-
+extension ArtistsViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let name = searchController.searchBar.text else { return }
+        print(name)
+        print("Clicked")
+    }
+    
+}
