@@ -12,7 +12,7 @@ final class ArtistCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private lazy var image: UIImageView = {
+    private lazy var imageView: UIImageView = {
         var image = UIImageView()
         return image
     }()
@@ -40,43 +40,67 @@ final class ArtistCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupCellLayout()
-        }
+    }
     
     // MARK: - Functions helper contraints
     
+    //private func setupCellLayout() {
+    //
+    //    contentView.addSubview(stackView)
+    //    stackView.addSubview(imageView)
+    //    imageView.snp.makeConstraints {
+    //        $0.width.equalTo(40)
+    //        $0.height.equalTo(40)
+    //        $0.leading.equalToSuperview()
+    //        $0.top.equalToSuperview()
+    //        //$0.leading.equalToSuperview()
+    //        // $0.top.leading.trailing.bottom.equalToSuperview()
+    //    }
+    //
+    //    stackView.addSubview(label)
+    //    label.snp.makeConstraints {
+    //        $0.width.equalTo(40)
+    //        $0.height.equalTo(25)
+    //        $0.leading.equalToSuperview()
+    //        $0.bottom.equalToSuperview()
+    //        //$0.leading.equalToSuperview()
+    //        //$0.top.leading.trailing.bottom.equalToSuperview()
+    //    }
+    //
+    //}
+    
     private func setupCellLayout() {
         
-        stackView.addSubview(image)
-        image.snp.makeConstraints {
-            $0.width.equalTo(100)
-            $0.height.equalTo(65)
+        stackView.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.width.equalTo(80)
+            $0.height.equalTo(60)
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
         }
         
         stackView.addSubview(label)
         label.snp.makeConstraints {
-            $0.width.equalTo(100)
-            $0.height.equalTo(25)
+            $0.width.equalTo(80)
+            $0.height.equalTo(20)
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
         
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.width.equalTo(100)
-            $0.height.equalTo(100)
+            $0.width.equalTo(60)
+            $0.height.equalTo(60)
             $0.centerX.equalTo(contentView.center.x)
             $0.centerY.equalTo(contentView.center.y)
 
         }
     }
-    
-     // MARK: - Setup
+    // MARK: - Setup
     
     func configure(with item: VisibleArtist) {
         label.text = item.name
-        image = UIImageView(image: UIImage(named: "765-default-avatar"))
+        imageView.image =  UIImage(named: "Gainsbourg")
     }
     
 }

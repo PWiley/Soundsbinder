@@ -10,10 +10,9 @@ import SnapKit
 
 final class ArtistsViewController: UIViewController {
    
-    // MARK: - Properties
     
-    let viewModel:  ArtistsViewModel!
-    
+    // MARK: - Private Properties
+    private let viewModel:  ArtistsViewModel!
     private lazy var source = ArtistsDataSource(collectionView: collectionView,
                                                 viewModel: viewModel)
     
@@ -21,8 +20,10 @@ final class ArtistsViewController: UIViewController {
         
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = .init()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 40, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        //layout.itemSize = CGSize(width: 60, height: 60)
+        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: self.view.frame,collectionViewLayout: layout)
         collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: "Cell")
         return collectionView
@@ -48,36 +49,25 @@ final class ArtistsViewController: UIViewController {
         setupLayout()
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        bind(to: viewModel)
-        viewModel.viewWillAppear()
-        view.backgroundColor = .white
-        
-        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Artist Search"
-        navigationItem.hidesSearchBarWhenScrolling = true
-        navigationItem.searchController = searchController
-
-        searchController.searchBar.delegate = self
-
-        definesPresentationContext = true
     }
     
     // MARK: - Private
     
     private func setupLayout() {
-    
+        collectionView.backgroundColor = .white
+        
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.delegate = self
+        
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            //$0.top.equalTo(searchController.searchBar.snp.top)
-            $0.top.leading.bottom.trailing.equalToSuperview()
+            $0.top.bottom.leading.trailing.equalToSuperview()
+           
         }
     }
     
@@ -85,8 +75,13 @@ final class ArtistsViewController: UIViewController {
         viewModel.items = { [weak self] items in
             DispatchQueue.main.async {
                 self?.source.update(with: items)
+                self?.collectionView.contentOffset = .zero
                 self?.collectionView.reloadData()
             }
+        }
+
+        viewModel.screenTitle = { [weak self] title in
+            self?.title = title
         }
     }
 
@@ -98,8 +93,7 @@ extension ArtistsViewController: UISearchControllerDelegate, UISearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let name = searchController.searchBar.text else { return }
-        print(name)
-        print("Clicked")
+        viewModel.didPressSearch(for: name)
     }
     
 }

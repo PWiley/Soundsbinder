@@ -19,9 +19,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let repository = ArtistsRepository(client: client, parser: parser)
         let viewModel = ArtistsViewModel(repository: repository)
         let initialViewController = ArtistsViewController(viewModel: viewModel)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.makeKeyAndVisible()
+
+        self.window!.rootViewController = UINavigationController(
+            rootViewController: initialViewController
+        )
+
         return true
     }
     
