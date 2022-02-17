@@ -209,7 +209,6 @@
 			children = (
 				8EDE38EB277205080065C06A /* App */,
 				8EDE38ED2772051D0065C06A /* Network */,
-				8EDE38EE2772053A0065C06A /* Persistence */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -270,13 +269,6 @@
 				8E5E1B1627831362007905AF /* RequestCancellationToken.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		8EDE38EE2772053A0065C06A /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

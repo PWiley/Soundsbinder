@@ -12,6 +12,8 @@ final class ArtistsViewController: UIViewController {
    
     
     // MARK: - Private Properties
+    
+   
     private let viewModel:  ArtistsViewModel!
     private lazy var source = ArtistsDataSource(collectionView: collectionView,
                                                 viewModel: viewModel)

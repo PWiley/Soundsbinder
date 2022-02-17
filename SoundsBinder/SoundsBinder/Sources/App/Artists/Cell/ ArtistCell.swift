@@ -14,12 +14,18 @@ final class ArtistCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         var image = UIImageView()
+        image.contentMode = .scaleToFill
+        //image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     private lazy var label: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        //label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -44,57 +50,39 @@ final class ArtistCell: UICollectionViewCell {
     
     // MARK: - Functions helper contraints
     
-    //private func setupCellLayout() {
-    //
-    //    contentView.addSubview(stackView)
-    //    stackView.addSubview(imageView)
-    //    imageView.snp.makeConstraints {
-    //        $0.width.equalTo(40)
-    //        $0.height.equalTo(40)
-    //        $0.leading.equalToSuperview()
-    //        $0.top.equalToSuperview()
-    //        //$0.leading.equalToSuperview()
-    //        // $0.top.leading.trailing.bottom.equalToSuperview()
-    //    }
-    //
-    //    stackView.addSubview(label)
-    //    label.snp.makeConstraints {
-    //        $0.width.equalTo(40)
-    //        $0.height.equalTo(25)
-    //        $0.leading.equalToSuperview()
-    //        $0.bottom.equalToSuperview()
-    //        //$0.leading.equalToSuperview()
-    //        //$0.top.leading.trailing.bottom.equalToSuperview()
-    //    }
-    //
-    //}
     
     private func setupCellLayout() {
-        
-        stackView.addSubview(imageView)
+        contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
-            $0.width.equalTo(80)
-            $0.height.equalTo(60)
-            $0.leading.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.height.topMargin.leftMargin.rightMargin.equalToSuperview()
+            //$0.height.equalToSuperview().dividedBy(<#T##amount: ConstraintMultiplierTarget##ConstraintMultiplierTarget#>)
         }
         
-        stackView.addSubview(label)
+        contentView.addSubview(label)
         label.snp.makeConstraints {
-            $0.width.equalTo(80)
-            $0.height.equalTo(20)
-            $0.leading.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(imageView.snp.bottom)
+            $0.leftMargin.equalToSuperview()
+            $0.rightMargin.equalToSuperview()
+            $0.bottomMargin.equalToSuperview()
         }
+//        let width = label.intrinsicContentSize.width // This reveal only text width in label
+//        stackView.addSubview(label)
+//            label.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
+//            label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//            label.centerYAnchor.constraint(equalTo: stackView.centerYAnchor, constant: 25).isActive = true
+//            label.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
+//
+//        stackView.addSubview(imageView)
+//        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+//        imageView.heightAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+//        imageView.bottomAnchor.constraint(equalTo: label.topAnchor).isActive = true
+//        imageView.centerXAnchor.constraint(equalTo: label.centerXAnchor).isActive = true//
+//
+//        contentView.addSubview(stackView)
+//        stackView.snp.makeConstraints {
+//            $0.top.bottom.leading.trailing.equalToSuperview()
+//        }
         
-        contentView.addSubview(stackView)
-        stackView.snp.makeConstraints {
-            $0.width.equalTo(60)
-            $0.height.equalTo(60)
-            $0.centerX.equalTo(contentView.center.x)
-            $0.centerY.equalTo(contentView.center.y)
-
-        }
     }
     // MARK: - Setup
     
@@ -102,5 +90,19 @@ final class ArtistCell: UICollectionViewCell {
         label.text = item.name
         imageView.image =  UIImage(named: "Gainsbourg")
     }
-    
-}
+    func shadowDecorate() {
+        let radius: CGFloat = 10
+        contentView.layer.cornerRadius = radius
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+        layer.cornerRadius = radius
+        
+    }}
