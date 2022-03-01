@@ -39,13 +39,6 @@
 			remoteGlobalIDString = 8E8300342771FEC0009CCDA8;
 			remoteInfo = SoundsBinder;
 		};
-		8E8300562771FEC2009CCDA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E83002D2771FEBF009CCDA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E8300342771FEC0009CCDA8;
-			remoteInfo = SoundsBinder;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +61,6 @@
 		8E8300462771FEC2009CCDA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsBinderTests.swift; sourceTree = "<group>"; };
-		8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDE38E1277201E20065C06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8EDE38F52772062F0065C06A /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		8EDE38F7277206400065C06A /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
@@ -86,13 +78,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8E8300482771FEC2009CCDA8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E8300522771FEC2009CCDA8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -126,7 +111,6 @@
 			children = (
 				8E8300352771FEC0009CCDA8 /* SoundsBinder.app */,
 				8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */,
-				8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +138,6 @@
 			children = (
 				8EDE38EB277205080065C06A /* App */,
 				8EDE38ED2772051D0065C06A /* Network */,
-				8EDE38EE2772053A0065C06A /* Persistence */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -213,13 +196,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		8EDE38EE2772053A0065C06A /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,24 +238,6 @@
 			productReference = 8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8E8300542771FEC2009CCDA8 /* SoundsBinderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E8300652771FEC2009CCDA8 /* Build configuration list for PBXNativeTarget "SoundsBinderUITests" */;
-			buildPhases = (
-				8E8300512771FEC2009CCDA8 /* Sources */,
-				8E8300522771FEC2009CCDA8 /* Frameworks */,
-				8E8300532771FEC2009CCDA8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E8300572771FEC2009CCDA8 /* PBXTargetDependency */,
-			);
-			name = SoundsBinderUITests;
-			productName = SoundsBinderUITests;
-			productReference = 8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -294,10 +252,6 @@
 						CreatedOnToolsVersion = 13.1;
 					};
 					8E83004A2771FEC2009CCDA8 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 8E8300342771FEC0009CCDA8;
-					};
-					8E8300542771FEC2009CCDA8 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 8E8300342771FEC0009CCDA8;
 					};
@@ -322,7 +276,6 @@
 			targets = (
 				8E8300342771FEC0009CCDA8 /* SoundsBinder */,
 				8E83004A2771FEC2009CCDA8 /* SoundsBinderTests */,
-				8E8300542771FEC2009CCDA8 /* SoundsBinderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -339,13 +292,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8E8300492771FEC2009CCDA8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E8300532771FEC2009CCDA8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,13 +332,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E8300512771FEC2009CCDA8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -400,11 +339,6 @@
 			isa = PBXTargetDependency;
 			target = 8E8300342771FEC0009CCDA8 /* SoundsBinder */;
 			targetProxy = 8E83004C2771FEC2009CCDA8 /* PBXContainerItemProxy */;
-		};
-		8E8300572771FEC2009CCDA8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E8300342771FEC0009CCDA8 /* SoundsBinder */;
-			targetProxy = 8E8300562771FEC2009CCDA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -642,52 +576,6 @@
 			};
 			name = Release;
 		};
-		8E8300662771FEC2009CCDA8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52T6VV3859;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deustchekapital.SoundsBinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SoundsBinder;
-			};
-			name = Debug;
-		};
-		8E8300672771FEC2009CCDA8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52T6VV3859;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deustchekapital.SoundsBinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SoundsBinder;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -714,15 +602,6 @@
 			buildConfigurations = (
 				8E8300632771FEC2009CCDA8 /* Debug */,
 				8E8300642771FEC2009CCDA8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E8300652771FEC2009CCDA8 /* Build configuration list for PBXNativeTarget "SoundsBinderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E8300662771FEC2009CCDA8 /* Debug */,
-				8E8300672771FEC2009CCDA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
