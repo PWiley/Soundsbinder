@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
-final class ArtistsViewController: UIViewController {
+final class ArtistsViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Properties
+    
+    private let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -39,6 +41,17 @@ final class ArtistsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchBar.scopeButtonTitles = ["Artist", "Album"]
+        searchController.searchBar.backgroundColor = .red
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
         setupLayout()
         bindViewModel()
         viewModel.viewDidLoad()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8715A9F327CE4C92001C36EE /* ArtistsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715A9F227CE4C8F001C36EE /* ArtistsDataSource.swift */; };
 		876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */; };
 		876132A727970B1200CBE3BA /* ArtistsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */; };
 		8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8715A9F227CE4C8F001C36EE /* ArtistsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsDataSource.swift; sourceTree = "<group>"; };
 		876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsEndpoint.swift; sourceTree = "<group>"; };
 		876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewModelTests.swift; sourceTree = "<group>"; };
 		8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponse.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */,
 				8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */,
 				8E2253F2277B008B002DFEB8 /* ArtistsViewController.swift */,
+				8715A9F227CE4C8F001C36EE /* ArtistsDataSource.swift */,
 			);
 			path = Artists;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				8E2253F5277B008B002DFEB8 /* ArtistsViewController.swift in Sources */,
 				8E5E1B1827831362007905AF /* JSONParser.swift in Sources */,
 				8E5E1B1B27831362007905AF /* RequestCancellationToken.swift in Sources */,
+				8715A9F327CE4C92001C36EE /* ArtistsDataSource.swift in Sources */,
 				8EDE38FA277206570065C06A /* AlbumRepository.swift in Sources */,
 				8E5E1B1727831362007905AF /* Endpoint.swift in Sources */,
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
