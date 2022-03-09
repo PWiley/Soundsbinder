@@ -8,43 +8,48 @@
 import Foundation
 
 final class ArtistsViewModel {
-
+    
     // MARK: - Properties
-
+    
     private let repository: ArtistsRepositoryType
     private var artists: [Artist] = [] {
         didSet {
-            self.items?(artists)
+            items?(artists)
         }
     }
-
+    
     // MARK: - Init
-
+    
     init(repository: ArtistsRepositoryType) {
         self.repository = repository
     }
-
+    
     // MARK: - Inputs
     
     func viewDidLoad() {
+        screenTitle?("Artists Search")
         artists = []
     }
-
-    func viewWillAppear() {
-    }
-
+    
     func didPressSearch(for name: String) {
         repository.searchArtists(for: name) { [ weak self] result in
             switch result {
             case .success(let artists):
+                //print(artists)
                 self?.artists = artists
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
             }
         }
     }
-
+    
+    func didPressCellForDetail(indexPath: Int) {
+        //print(indexPath)
+    }
+    
     // MARK: - Outputs
-
-    var items: (([Artist]) -> Void)?
+    
+    var screenTitle: InputClosure<String>?
+    var items: InputClosure<[Artist]>?
+    
 }

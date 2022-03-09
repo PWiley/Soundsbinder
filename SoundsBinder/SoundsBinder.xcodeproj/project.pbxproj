@@ -3,12 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870B809A27AABF34006EE171 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B809927AABF34006EE171 /* ImageRepository.swift */; };
+		870B809C27AAC1A7006EE171 /* ArtistsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870B809B27AAC1A7006EE171 /* ArtistsDataSource.swift */; };
+		871D889327D0C57E00CBA2EC /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 871D889227D0C57E00CBA2EC /* AlamofireImage */; };
+		8728438C27997BFC004040D9 /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728438B27997BFC004040D9 /* Bundle+Tests.swift */; };
+		8728438E279981C0004040D9 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728438D279981C0004040D9 /* MockData.swift */; };
 		876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */; };
 		876132A727970B1200CBE3BA /* ArtistsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */; };
+		876132A92797154700CBE3BA /* ArtistsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 876132A82797154700CBE3BA /* ArtistsResponse.json */; };
+		876132AB27971C3A00CBE3BA /* InvalidArtistsResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 876132AA27971C3900CBE3BA /* InvalidArtistsResponse.json */; };
+		876132AD27971DC200CBE3BA /* ArtistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132AC27971DC200CBE3BA /* ArtistsRepositoryTests.swift */; };
+		87711E1227D0BF3700E9FCCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87711E1127D0BF3700E9FCCE /* SnapKit */; };
+		878F895327A157DC0024AF98 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F895227A157DC0024AF98 /* Artist.swift */; };
+		87A2726A27B3BDEC00E72C06 /*  ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2726927B3BDEC00E72C06 /*  ArtistCell.swift */; };
 		8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */; };
 		8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253E2277AF075002DFEB8 /* Helper.swift */; };
 		8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */; };
@@ -22,10 +33,7 @@
 		8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8300382771FEC0009CCDA8 /* AppDelegate.swift */; };
 		8E8300422771FEC2009CCDA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300412771FEC2009CCDA8 /* Assets.xcassets */; };
 		8E8300452771FEC2009CCDA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8300432771FEC2009CCDA8 /* LaunchScreen.storyboard */; };
-		8E8300502771FEC2009CCDA8 /* SoundsBinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */; };
 		8EDE38E2277201E20065C06A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE38E1277201E20065C06A /* README.md */; };
-		8EDE38E7277202F70065C06A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8EDE38E6277202F70065C06A /* SnapKit */; settings = {ATTRIBUTES = (Required, ); }; };
-		8EDE38EA277203490065C06A /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8EDE38E9277203490065C06A /* AlamofireImage */; };
 		8EDE38F62772062F0065C06A /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE38F52772062F0065C06A /* AlbumViewController.swift */; };
 		8EDE38F8277206400065C06A /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE38F7277206400065C06A /* AlbumViewModel.swift */; };
 		8EDE38FA277206570065C06A /* AlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE38F9277206570065C06A /* AlbumRepository.swift */; };
@@ -39,18 +47,20 @@
 			remoteGlobalIDString = 8E8300342771FEC0009CCDA8;
 			remoteInfo = SoundsBinder;
 		};
-		8E8300562771FEC2009CCDA8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E83002D2771FEBF009CCDA8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E8300342771FEC0009CCDA8;
-			remoteInfo = SoundsBinder;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		870B809927AABF34006EE171 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		870B809B27AAC1A7006EE171 /* ArtistsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsDataSource.swift; sourceTree = "<group>"; };
+		8728438B27997BFC004040D9 /* Bundle+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
+		8728438D279981C0004040D9 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		876132A427970AE700CBE3BA /* ArtistsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsEndpoint.swift; sourceTree = "<group>"; };
 		876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsViewModelTests.swift; sourceTree = "<group>"; };
+		876132A82797154700CBE3BA /* ArtistsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ArtistsResponse.json; sourceTree = "<group>"; };
+		876132AA27971C3900CBE3BA /* InvalidArtistsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = InvalidArtistsResponse.json; sourceTree = "<group>"; };
+		876132AC27971DC200CBE3BA /* ArtistsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsRepositoryTests.swift; sourceTree = "<group>"; };
+		878F895227A157DC0024AF98 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		87A2726927B3BDEC00E72C06 /*  ArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " ArtistCell.swift"; sourceTree = "<group>"; };
 		8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponse.swift; sourceTree = "<group>"; };
 		8E2253E2277AF075002DFEB8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewModel.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -67,8 +77,6 @@
 		8E8300442771FEC2009CCDA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E8300462771FEC2009CCDA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsBinderTests.swift; sourceTree = "<group>"; };
-		8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsBinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDE38E1277201E20065C06A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8EDE38F52772062F0065C06A /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		8EDE38F7277206400065C06A /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
@@ -80,8 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EDE38E7277202F70065C06A /* SnapKit in Frameworks */,
-				8EDE38EA277203490065C06A /* AlamofireImage in Frameworks */,
+				87711E1227D0BF3700E9FCCE /* SnapKit in Frameworks */,
+				871D889327D0C57E00CBA2EC /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,16 +100,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E8300522771FEC2009CCDA8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		870B809627AABE6D006EE171 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				870B809927AABF34006EE171 /* ImageRepository.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		8719CBE227996DA200553780 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8719CBE327996DB600553780 /* Artists */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8719CBE327996DB600553780 /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */,
+				876132AC27971DC200CBE3BA /* ArtistsRepositoryTests.swift */,
+			);
+			path = Artists;
+			sourceTree = "<group>";
+		};
+		8728438A27997BD7004040D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8728438B27997BFC004040D9 /* Bundle+Tests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		876132AE2797201D00CBE3BA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				876132A82797154700CBE3BA /* ArtistsResponse.json */,
+				876132AA27971C3900CBE3BA /* InvalidArtistsResponse.json */,
+				8728438D279981C0004040D9 /* MockData.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8793E53F27AC8943007AAE57 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				87A2726927B3BDEC00E72C06 /*  ArtistCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8E2253E1277AEEEC002DFEB8 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +178,6 @@
 			children = (
 				8E8300352771FEC0009CCDA8 /* SoundsBinder.app */,
 				8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */,
-				8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,8 +194,9 @@
 		8E83004E2771FEC2009CCDA8 /* SoundsBinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				876132A627970B1200CBE3BA /* ArtistsViewModelTests.swift */,
-				8E83004F2771FEC2009CCDA8 /* SoundsBinderTests.swift */,
+				8728438A27997BD7004040D9 /* Helpers */,
+				876132AE2797201D00CBE3BA /* Mocks */,
+				8719CBE227996DA200553780 /* App */,
 			);
 			path = SoundsBinderTests;
 			sourceTree = "<group>";
@@ -154,7 +206,6 @@
 			children = (
 				8EDE38EB277205080065C06A /* App */,
 				8EDE38ED2772051D0065C06A /* Network */,
-				8EDE38EE2772053A0065C06A /* Persistence */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -182,10 +233,14 @@
 		8EDE38E4277202670065C06A /* Artists */ = {
 			isa = PBXGroup;
 			children = (
+				870B809627AABE6D006EE171 /* Image */,
+				8793E53F27AC8943007AAE57 /* Cell */,
 				8E2253E1277AEEEC002DFEB8 /* Domain */,
-				8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */,
-				8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */,
 				8E2253F2277B008B002DFEB8 /* ArtistsViewController.swift */,
+				8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */,
+				870B809B27AAC1A7006EE171 /* ArtistsDataSource.swift */,
+				8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */,
+				878F895227A157DC0024AF98 /* Artist.swift */,
 			);
 			path = Artists;
 			sourceTree = "<group>";
@@ -213,13 +268,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		8EDE38EE2772053A0065C06A /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,8 +285,8 @@
 			);
 			name = SoundsBinder;
 			packageProductDependencies = (
-				8EDE38E6277202F70065C06A /* SnapKit */,
-				8EDE38E9277203490065C06A /* AlamofireImage */,
+				87711E1127D0BF3700E9FCCE /* SnapKit */,
+				871D889227D0C57E00CBA2EC /* AlamofireImage */,
 			);
 			productName = SoundsBinder;
 			productReference = 8E8300352771FEC0009CCDA8 /* SoundsBinder.app */;
@@ -262,24 +310,6 @@
 			productReference = 8E83004B2771FEC2009CCDA8 /* SoundsBinderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8E8300542771FEC2009CCDA8 /* SoundsBinderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E8300652771FEC2009CCDA8 /* Build configuration list for PBXNativeTarget "SoundsBinderUITests" */;
-			buildPhases = (
-				8E8300512771FEC2009CCDA8 /* Sources */,
-				8E8300522771FEC2009CCDA8 /* Frameworks */,
-				8E8300532771FEC2009CCDA8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E8300572771FEC2009CCDA8 /* PBXTargetDependency */,
-			);
-			name = SoundsBinderUITests;
-			productName = SoundsBinderUITests;
-			productReference = 8E8300552771FEC2009CCDA8 /* SoundsBinderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,14 +327,10 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 8E8300342771FEC0009CCDA8;
 					};
-					8E8300542771FEC2009CCDA8 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 8E8300342771FEC0009CCDA8;
-					};
 				};
 			};
 			buildConfigurationList = 8E8300302771FEBF009CCDA8 /* Build configuration list for PBXProject "SoundsBinder" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -313,8 +339,8 @@
 			);
 			mainGroup = 8E83002C2771FEBF009CCDA8;
 			packageReferences = (
-				8EDE38E5277202F70065C06A /* XCRemoteSwiftPackageReference "SnapKit" */,
-				8EDE38E8277203490065C06A /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				87711E1027D0BF3700E9FCCE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				871D889127D0C57E00CBA2EC /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 8E8300362771FEC0009CCDA8 /* Products */;
 			projectDirPath = "";
@@ -322,7 +348,6 @@
 			targets = (
 				8E8300342771FEC0009CCDA8 /* SoundsBinder */,
 				8E83004A2771FEC2009CCDA8 /* SoundsBinderTests */,
-				8E8300542771FEC2009CCDA8 /* SoundsBinderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -342,13 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E8300532771FEC2009CCDA8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				876132A92797154700CBE3BA /* ArtistsResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,12 +379,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDE38F8277206400065C06A /* AlbumViewModel.swift in Sources */,
+				870B809C27AAC1A7006EE171 /* ArtistsDataSource.swift in Sources */,
 				8EDE38F62772062F0065C06A /* AlbumViewController.swift in Sources */,
 				8E5E1B1927831362007905AF /* HTTPClient.swift in Sources */,
 				8E5E1B1A27831362007905AF /* RequestBuilder.swift in Sources */,
 				8E2253F5277B008B002DFEB8 /* ArtistsViewController.swift in Sources */,
 				8E5E1B1827831362007905AF /* JSONParser.swift in Sources */,
 				8E5E1B1B27831362007905AF /* RequestCancellationToken.swift in Sources */,
+				870B809A27AABF34006EE171 /* ImageRepository.swift in Sources */,
+				87A2726A27B3BDEC00E72C06 /*  ArtistCell.swift in Sources */,
 				8EDE38FA277206570065C06A /* AlbumRepository.swift in Sources */,
 				8E5E1B1727831362007905AF /* Endpoint.swift in Sources */,
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
@@ -373,6 +395,7 @@
 				876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */,
 				8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */,
 				8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */,
+				878F895327A157DC0024AF98 /* Artist.swift in Sources */,
 				8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,15 +404,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E8300502771FEC2009CCDA8 /* SoundsBinderTests.swift in Sources */,
+				876132AD27971DC200CBE3BA /* ArtistsRepositoryTests.swift in Sources */,
+				8728438C27997BFC004040D9 /* Bundle+Tests.swift in Sources */,
 				876132A727970B1200CBE3BA /* ArtistsViewModelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E8300512771FEC2009CCDA8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				876132AB27971C3A00CBE3BA /* InvalidArtistsResponse.json in Sources */,
+				8728438E279981C0004040D9 /* MockData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,11 +419,6 @@
 			isa = PBXTargetDependency;
 			target = 8E8300342771FEC0009CCDA8 /* SoundsBinder */;
 			targetProxy = 8E83004C2771FEC2009CCDA8 /* PBXContainerItemProxy */;
-		};
-		8E8300572771FEC2009CCDA8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E8300342771FEC0009CCDA8 /* SoundsBinder */;
-			targetProxy = 8E8300562771FEC2009CCDA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -471,7 +485,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -526,7 +540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -548,6 +562,7 @@
 				INFOPLIST_FILE = SoundsBinder/Ressources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -560,7 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -576,6 +591,7 @@
 				INFOPLIST_FILE = SoundsBinder/Ressources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -588,7 +604,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -601,7 +617,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 52T6VV3859;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +642,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 52T6VV3859;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -639,52 +655,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundsBinder.app/SoundsBinder";
-			};
-			name = Release;
-		};
-		8E8300662771FEC2009CCDA8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52T6VV3859;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deustchekapital.SoundsBinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SoundsBinder;
-			};
-			name = Debug;
-		};
-		8E8300672771FEC2009CCDA8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 52T6VV3859;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deustchekapital.SoundsBinderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SoundsBinder;
 			};
 			name = Release;
 		};
@@ -718,19 +688,18 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E8300652771FEC2009CCDA8 /* Build configuration list for PBXNativeTarget "SoundsBinderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E8300662771FEC2009CCDA8 /* Debug */,
-				8E8300672771FEC2009CCDA8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8EDE38E5277202F70065C06A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		871D889127D0C57E00CBA2EC /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		87711E1027D0BF3700E9FCCE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -738,26 +707,18 @@
 				version = 5.0.1;
 			};
 		};
-		8EDE38E8277203490065C06A /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
-			requirement = {
-				kind = exactVersion;
-				version = 4.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8EDE38E6277202F70065C06A /* SnapKit */ = {
+		871D889227D0C57E00CBA2EC /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8EDE38E5277202F70065C06A /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		8EDE38E9277203490065C06A /* AlamofireImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8EDE38E8277203490065C06A /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			package = 871D889127D0C57E00CBA2EC /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
+		};
+		87711E1127D0BF3700E9FCCE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87711E1027D0BF3700E9FCCE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
