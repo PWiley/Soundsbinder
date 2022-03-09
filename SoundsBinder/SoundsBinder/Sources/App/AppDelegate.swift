@@ -14,15 +14,21 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let repository = ArtistsRepository()
+        let client = HTTPClient()
+        let parser = JSONParser()
+        let repository = ArtistsRepository(client: client, parser: parser)
         let viewModel = ArtistsViewModel(repository: repository)
         let initialViewController = ArtistsViewController(viewModel: viewModel)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.makeKeyAndVisible()
+
+        self.window!.rootViewController = UINavigationController(
+            rootViewController: initialViewController
+        )
+
         return true
     }
-
     
 }
 

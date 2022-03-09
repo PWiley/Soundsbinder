@@ -1,6 +1,6 @@
 //
 //  ArtistsViewController.swift
-//  Deezer
+//  SoundsBinder
 //
 //  Created by Patrick Wiley on 02/12/2021.
 //
@@ -9,23 +9,30 @@ import UIKit
 import SnapKit
 
 final class ArtistsViewController: UIViewController {
+   
+    // MARK: - Private Properties
     
-    // MARK: - Properties
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        // Adding Generic custom cell
-        return tableView
+    private let viewModel:  ArtistsViewModel!
+    private lazy var source = ArtistsDataSource(collectionView: collectionView,
+                                                viewModel: viewModel)
+
+    private lazy var searchController = UISearchController(searchResultsController: nil)
+        
+    private lazy var collectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = .init()
+        layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        //layout.itemSize = CGSize(width: 60, height: 60)
+        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 20
+        let collectionView = UICollectionView(frame: self.view.frame,collectionViewLayout: layout)
+        collectionView.register(ArtistCell.self, forCellWithReuseIdentifier: "Cell")
+        return collectionView
     }()
+
+    private var items: [Artist] = []
     
-    private let viewModel: ArtistsViewModel
-
     // MARK: - Init
-
+    
     init(viewModel: ArtistsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -40,37 +47,49 @@ final class ArtistsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        bindViewModel()
+        bind(to: viewModel)
         viewModel.viewDidLoad()
     }
-
+    
     // MARK: - Private
-
+    
     private func setupLayout() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
-            $0.bottom.equalToSuperview()
+        collectionView.backgroundColor = .white
+        
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.searchController = searchController
+        
+        searchController.searchBar.delegate = self
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.top.bottom.leading.trailing.equalToSuperview()
+           
         }
     }
+    
+    private func bind(to viewModel: ArtistsViewModel) {
+        viewModel.items = { [weak self] items in
+            DispatchQueue.main.async {
+                self?.source.update(with: items)
+                self?.collectionView.contentOffset = .zero
+                self?.collectionView.reloadData()
+            }
+        }
 
-    private func bindViewModel() {
-        
+        viewModel.screenTitle = { [weak self] title in
+            self?.title = title
+        }
     }
 }
 
-extension ArtistsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
+extension ArtistsViewController: UISearchControllerDelegate, UISearchBarDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let name = searchController.searchBar.text else { return }
+        viewModel.didPressSearch(for: name)
     }
-    
     
 }
-
-
