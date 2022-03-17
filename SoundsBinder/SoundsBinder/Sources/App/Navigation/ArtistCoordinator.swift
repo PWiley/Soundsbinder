@@ -17,10 +17,26 @@ final class ArtistCoordinator {
     
     // MARK: - Initialisers
     
-    init(presenter: UIWindow, context: Context) {
+    init(presenter: UINavigationController, context: Context) {
         self.presenter = presenter
-        self.screens = 
+        self.screens = Screens(context: context)
     }
     
+    // MARK: - Coordinator
+    
+    func start() {
+       showSearch()
+    }
+    
+    private func showSearch() {
+        let viewController = screens.createArtistViewController(delegate: self)
+        presenter.viewControllers = [viewController]
+    }
+    
+}
+
+extension ArtistCoordinator: ArtistViewControllerDelegate {
+    func didSelect(artist: Artist) {
+    }
     
 }

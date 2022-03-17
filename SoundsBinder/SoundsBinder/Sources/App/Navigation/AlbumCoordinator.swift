@@ -6,5 +6,29 @@
 //
 
 import Foundation
+import UIKit
 
-final class AlbumCoordinator {}
+final class AlbumCoordinator {
+    
+    // MARK: - Properties
+    
+    var presenter: UINavigationController
+    var screens: Screens
+    
+    // MARK: - Initializers
+    
+    init(presenter: UINavigationController, context: Context) {
+        self.presenter = presenter
+        self.screens = Screens(context: context)
+    }
+    
+    // MARK: - Coordinator
+    
+    func start() {
+        
+    }
+    
+    private func showSearch() {
+    
+    }
+}
