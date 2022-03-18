@@ -13,7 +13,6 @@
 		871AD3B927E326BB00550553 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AD3B727E326BB00550553 /* Screens.swift */; };
 		871AD3BB27E34BDC00550553 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AD3BA27E34BDC00550553 /* AppCoordinator.swift */; };
 		871AD3BD27E34E0F00550553 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AD3BC27E34E0F00550553 /* TabBarCoordinator.swift */; };
-		871AD3C027E3539000550553 /* ArtistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AD3BF27E3539000550553 /* ArtistCoordinator.swift */; };
 		871AD3C227E353C100550553 /* AlbumCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AD3C127E353C100550553 /* AlbumCoordinator.swift */; };
 		8728438C27997BFC004040D9 /* Bundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728438B27997BFC004040D9 /* Bundle+Tests.swift */; };
 		8728438E279981C0004040D9 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728438D279981C0004040D9 /* MockData.swift */; };
@@ -26,6 +25,8 @@
 		876132AD27971DC200CBE3BA /* ArtistsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876132AC27971DC200CBE3BA /* ArtistsRepositoryTests.swift */; };
 		878F895327A157DC0024AF98 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F895227A157DC0024AF98 /* Artist.swift */; };
 		87A2726A27B3BDEC00E72C06 /*  ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2726927B3BDEC00E72C06 /*  ArtistCell.swift */; };
+		87B9EE3C27E49DF200B9FD2C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 87B9EE3B27E49DF200B9FD2C /* Alamofire */; };
+		87B9EE3E27E4A12800B9FD2C /* ArtistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9EE3D27E4A12800B9FD2C /* ArtistCoordinator.swift */; };
 		87EC306B27E48BFD00269FE4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 87EC306A27E48BFD00269FE4 /* SnapKit */; };
 		87EC306E27E48C1E00269FE4 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 87EC306D27E48C1E00269FE4 /* AlamofireImage */; };
 		8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */; };
@@ -64,7 +65,6 @@
 		871AD3B727E326BB00550553 /* Screens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		871AD3BA27E34BDC00550553 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		871AD3BC27E34E0F00550553 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		871AD3BF27E3539000550553 /* ArtistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCoordinator.swift; sourceTree = "<group>"; };
 		871AD3C127E353C100550553 /* AlbumCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCoordinator.swift; sourceTree = "<group>"; };
 		8728438B27997BFC004040D9 /* Bundle+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Tests.swift"; sourceTree = "<group>"; };
 		8728438D279981C0004040D9 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -77,6 +77,7 @@
 		876132AC27971DC200CBE3BA /* ArtistsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsRepositoryTests.swift; sourceTree = "<group>"; };
 		878F895227A157DC0024AF98 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		87A2726927B3BDEC00E72C06 /*  ArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " ArtistCell.swift"; sourceTree = "<group>"; };
+		87B9EE3D27E4A12800B9FD2C /* ArtistCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCoordinator.swift; sourceTree = "<group>"; };
 		8E2253DF277AEE89002DFEB8 /* ArtistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsResponse.swift; sourceTree = "<group>"; };
 		8E2253E2277AF075002DFEB8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewModel.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -104,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B9EE3C27E49DF200B9FD2C /* Alamofire in Frameworks */,
 				87EC306B27E48BFD00269FE4 /* SnapKit in Frameworks */,
 				87EC306E27E48C1E00269FE4 /* AlamofireImage in Frameworks */,
 			);
@@ -147,8 +149,8 @@
 		871AD3BE27E350FB00550553 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				87B9EE3D27E4A12800B9FD2C /* ArtistCoordinator.swift */,
 				871AD3BC27E34E0F00550553 /* TabBarCoordinator.swift */,
-				871AD3BF27E3539000550553 /* ArtistCoordinator.swift */,
 				871AD3C127E353C100550553 /* AlbumCoordinator.swift */,
 			);
 			path = Navigation;
@@ -327,6 +329,7 @@
 			packageProductDependencies = (
 				87EC306A27E48BFD00269FE4 /* SnapKit */,
 				87EC306D27E48C1E00269FE4 /* AlamofireImage */,
+				87B9EE3B27E49DF200B9FD2C /* Alamofire */,
 			);
 			productName = SoundsBinder;
 			productReference = 8E8300352771FEC0009CCDA8 /* SoundsBinder.app */;
@@ -381,6 +384,7 @@
 			packageReferences = (
 				87EC306927E48BFD00269FE4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				87EC306C27E48C1D00269FE4 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				87B9EE3A27E49DF200B9FD2C /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 8E8300362771FEC0009CCDA8 /* Products */;
 			projectDirPath = "";
@@ -434,12 +438,12 @@
 				871AD3BB27E34BDC00550553 /* AppCoordinator.swift in Sources */,
 				8E5E1B1727831362007905AF /* Endpoint.swift in Sources */,
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
+				87B9EE3E27E4A12800B9FD2C /* ArtistCoordinator.swift in Sources */,
 				8E2253E0277AEE89002DFEB8 /* ArtistsResponse.swift in Sources */,
 				871AD3B827E326BB00550553 /* Context.swift in Sources */,
 				876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */,
 				871AD3B927E326BB00550553 /* Screens.swift in Sources */,
 				8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */,
-				871AD3C027E3539000550553 /* ArtistCoordinator.swift in Sources */,
 				8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */,
 				878F895327A157DC0024AF98 /* Artist.swift in Sources */,
 				8E8300392771FEC0009CCDA8 /* AppDelegate.swift in Sources */,
@@ -739,6 +743,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		87B9EE3A27E49DF200B9FD2C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
 		87EC306927E48BFD00269FE4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -758,6 +770,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		87B9EE3B27E49DF200B9FD2C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87B9EE3A27E49DF200B9FD2C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		87EC306A27E48BFD00269FE4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87EC306927E48BFD00269FE4 /* XCRemoteSwiftPackageReference "SnapKit" */;
