@@ -14,6 +14,12 @@ final class Context {
     let client: HTTPClient
     let parser: RequestCancellationToken
     
+    // MARK: - Methods
+    
+    public func buildContext() -> Context {
+        return Context()
+    }
+    
     // MARK: - Initialisers
     
     init() {
@@ -21,9 +27,5 @@ final class Context {
         parser = RequestCancellationToken()
     }
     
-    // MARK: - Methods
     
-    public func buildContext() -> Context {
-        return Context()
-    }
 }
