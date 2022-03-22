@@ -29,6 +29,6 @@ final class AlbumCoordinator {
     }
     
     private func showSearch() {
-    
+    print("showSearch")
     }
 }

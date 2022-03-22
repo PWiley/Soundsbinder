@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Context {
+class Context {
     
     // MARK: - Properties
     
@@ -16,7 +16,7 @@ final class Context {
     
     // MARK: - Methods
     
-    public func buildContext() -> Context {
+    static func buildContext() -> Context {
         return Context()
     }
     
@@ -26,6 +26,4 @@ final class Context {
         client = HTTPClient()
         parser = RequestCancellationToken()
     }
-    
-    
 }

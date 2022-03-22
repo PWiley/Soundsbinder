@@ -32,8 +32,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window!.rootViewController = UINavigationController(
 //            rootViewController: initialViewController
 //        )
-        
-        context = Context.buildContext()
+        context = .buildContext()
         coordinator = AppCoordinator(presenter: self, context: context)
         coordinator.start()
 
