@@ -53,7 +53,7 @@ final class ArtistsRepository: ArtistsRepositoryType {
             return response.artists.map { Artist(item: $0) }
         case .failure(let error):
             //assertionFailure(error.localizedDescription)
-            //print(error)
+            print(error)
             return []
         }
     }

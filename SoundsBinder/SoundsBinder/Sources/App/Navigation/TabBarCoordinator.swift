@@ -11,6 +11,7 @@ import UIKit
 enum ViewControllerItem: Int {
     case artist = 0
     case album
+    case other
 }
 
 protocol TabBarSourceType {
@@ -33,14 +34,16 @@ fileprivate class TabBarSource: TabBarSourceType {
     
     var items: [UINavigationController] = [
         UINavigationController(nibName: nil, bundle: nil),
+        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
     ]
 
 
     init() {
 
-        self[.artist].tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        self[.album].tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+        self[.artist].tabBarItem = UITabBarItem(title: "Artist", image: nil, selectedImage: nil)
+        self[.album].tabBarItem = UITabBarItem(title: "Album", image: nil, selectedImage: nil)
+        self[.other].tabBarItem = UITabBarItem(title: "Other", image: nil, selectedImage: nil)
         
     }
 }
@@ -110,6 +113,8 @@ extension TabBarCoordinator {
             showSearchArtist()
         case .album:
             showSearchAlbum()
+        case .other:
+            print("Hello")
         }
     }
 }

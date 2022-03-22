@@ -12,7 +12,7 @@ class Context {
     // MARK: - Properties
     
     let client: HTTPClient
-    let parser: RequestCancellationToken
+    let parser: JSONParserType
     
     // MARK: - Methods
     
@@ -24,6 +24,6 @@ class Context {
     
     init() {
         client = HTTPClient()
-        parser = RequestCancellationToken()
+        parser = JSONParser()
     }
 }

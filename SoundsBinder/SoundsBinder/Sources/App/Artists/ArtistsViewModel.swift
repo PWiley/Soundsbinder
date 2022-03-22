@@ -27,7 +27,7 @@ final class ArtistsViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
-        screenTitle?("Artists Search")
+        screenTitle?("Artists")
         artists = []
     }
     

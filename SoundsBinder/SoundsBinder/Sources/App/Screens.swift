@@ -29,7 +29,7 @@ protocol ArtistViewControllerDelegate: AnyObject {
 
 extension Screens {
     func createArtistViewController(delegate: ArtistViewControllerDelegate) -> UIViewController {
-        let repository = ArtistsRepository(client: context.client, parser: context.parser as! JSONParserType)
+        let repository = ArtistsRepository(client: context.client, parser: context.parser)
         let viewModel = ArtistsViewModel(repository: repository)
         let viewController = ArtistsViewController(viewModel: viewModel)
         return viewController
