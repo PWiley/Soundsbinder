@@ -79,7 +79,7 @@ extension MockArtistRepoSitory.Responses {
     fileprivate static var failure: MockArtistRepoSitory.Responses {
         .init(onSearchArtist: .failure(MockError.error))
     }
-    private static let mockArtists = try! JSONDecoder().decode(ArtistsResponse.Artists.self, from: MockData.artistsList).artists.map { Artist(item: $0.artist) }
+    private static let mockArtists = try! JSONDecoder().decode(ArtistsResponse.Artist.self, from: MockData.artistsList).artists.map { Artist(item: $0) }
     private enum MockError: Error {
         case error
     }
