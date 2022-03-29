@@ -41,7 +41,11 @@ final class ArtistsDataSource: NSObject, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectItemAtIndex?(indexPath.item)
+        let index = indexPath.item
+        guard indexPath.item < catalogArtists.count else {
+            fatalError()
+        }
+        didSelectItemAtIndex?(index)
     }
     
     func update(with catalogArtists: [Artist]) {

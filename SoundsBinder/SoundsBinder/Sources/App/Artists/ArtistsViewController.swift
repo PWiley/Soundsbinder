@@ -48,6 +48,7 @@ final class ArtistsViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         bind(to: viewModel)
+        bind(to: source)
         viewModel.viewDidLoad()
     }
     
@@ -83,6 +84,11 @@ final class ArtistsViewController: UIViewController {
             self?.title = title
         }
     }
+    
+    private func bind(to source: ArtistsDataSource) {
+        source.didSelectItemAtIndex = viewModel.didSelectItem
+    }
+    
 }
 
 extension ArtistsViewController: UISearchControllerDelegate, UISearchBarDelegate {

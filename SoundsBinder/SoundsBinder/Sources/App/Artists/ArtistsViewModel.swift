@@ -9,7 +9,7 @@ import Foundation
 
 final class ArtistsViewModel {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
     private let repository: ArtistsRepositoryType
     private var artists: [Artist] = [] {
@@ -18,6 +18,8 @@ final class ArtistsViewModel {
         }
     }
     
+    private var delegate: ArtistViewControllerDelegate?
+
     // MARK: - Init
     
     init(repository: ArtistsRepositoryType) {
@@ -27,7 +29,7 @@ final class ArtistsViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
-        screenTitle?("Artists Search")
+        screenTitle?("Artists")
         artists = []
     }
     
@@ -43,8 +45,13 @@ final class ArtistsViewModel {
         }
     }
     
-    func didPressCellForDetail(indexPath: Int) {
-        //print(indexPath)
+    func didSelectItem(index: Int) {
+        guard artists.indices.contains(index) else {
+            print("FatalError")
+            return
+        }
+        let artist = artists[index]
+        delegate?.didSelect(artist: artist)
     }
     
     // MARK: - Outputs

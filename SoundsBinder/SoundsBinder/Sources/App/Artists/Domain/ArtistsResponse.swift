@@ -19,13 +19,11 @@ struct ArtistsResponse: Codable {
     struct Artist: Codable {
         let id: Int
         let name: String
-        //let data: Data
         let pictureURLString: String
 
         enum CodingKeys: String, CodingKey {
             case id
             case name
-           // case data
             case pictureURLString = "picture_medium"
         }
     }
