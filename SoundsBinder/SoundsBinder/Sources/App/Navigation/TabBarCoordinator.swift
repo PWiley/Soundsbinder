@@ -5,19 +5,16 @@
 //  Created by Patrick Wiley on 17.03.22.
 //
 
-
 import UIKit
 
 enum ViewControllerItem: Int {
     case artist = 0
     case album
-    case other
 }
 
 protocol TabBarSourceType {
     var items: [UINavigationController] { get set }
 }
-
 
 extension TabBarSourceType {
     subscript(item: ViewControllerItem) -> UINavigationController {
@@ -34,17 +31,12 @@ fileprivate class TabBarSource: TabBarSourceType {
     
     var items: [UINavigationController] = [
         UINavigationController(nibName: nil, bundle: nil),
-        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
     ]
 
-
     init() {
-
         self[.artist].tabBarItem = UITabBarItem(title: "Artist", image: nil, selectedImage: nil)
         self[.album].tabBarItem = UITabBarItem(title: "Album", image: nil, selectedImage: nil)
-        self[.other].tabBarItem = UITabBarItem(title: "Other", image: nil, selectedImage: nil)
-        
     }
 }
 
@@ -70,7 +62,6 @@ final class TabBarCoordinator: NSObject, UITabBarControllerDelegate {
         self.presenter = presenter
         self.context = context
         
-        
         tabBarController = UITabBarController(nibName: nil, bundle: nil)
         tabBarController.viewControllers = tabBarSource.items
         tabBarController.selectedViewController = tabBarSource[.artist]
@@ -87,9 +78,11 @@ final class TabBarCoordinator: NSObject, UITabBarControllerDelegate {
         showSearchArtist()
     }
     
-    func showSearchArtist() {
-        artistCoordinator = ArtistCoordinator(presenter: tabBarSource[.artist],
-                                              context: context)
+    private func showSearchArtist() {
+        artistCoordinator = ArtistCoordinator(
+            presenter: tabBarSource[.artist],
+            context: context
+        )
         artistCoordinator?.start()
     }
     
@@ -111,11 +104,10 @@ extension TabBarCoordinator {
         switch item {
         case .artist:
             showSearchArtist()
+            print("Artist")
         case .album:
             //showSearchAlbum()
             print("Album")
-        case .other:
-            print("Hello")
         }
     }
 }

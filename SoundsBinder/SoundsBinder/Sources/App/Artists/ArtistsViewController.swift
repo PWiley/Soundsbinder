@@ -59,7 +59,7 @@ final class ArtistsViewController: UIViewController {
         
         navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         
         searchController.searchBar.delegate = self

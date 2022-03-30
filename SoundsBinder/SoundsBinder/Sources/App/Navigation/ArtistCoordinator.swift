@@ -32,12 +32,10 @@ final class ArtistCoordinator {
         let viewController = screens.createArtistViewController(delegate: self)
         presenter.viewControllers = [viewController]
     }
-    
 }
 
 extension ArtistCoordinator: ArtistViewControllerDelegate {
     func didSelect(artist: Artist) {
-        print("Details")
         let viewController = screens.createDetailsViewController(artist: artist)
         presenter.pushViewController(viewController,
                                      animated: true)

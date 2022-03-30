@@ -15,8 +15,7 @@ final class AppCoordinator {
     private unowned var presenter: AppDelegate
     private let context: Context
     private var tabBarCoordinator: TabBarCoordinator?
-    
-    
+
     // MARK: - Initialisers
     
     init(presenter: AppDelegate, context: Context) {
@@ -28,12 +27,11 @@ final class AppCoordinator {
     
     func start() {
         presenter.window = UIWindow(frame: UIScreen.main.bounds)
-        presenter.window?.rootViewController = UIViewController()
         presenter.window?.makeKeyAndVisible()
         showArtist()
     }
     
-    func showArtist() {
+    private func showArtist() {
         tabBarCoordinator = TabBarCoordinator(presenter: presenter.window!, context: context)
         tabBarCoordinator?.start()
     }

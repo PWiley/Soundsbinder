@@ -22,8 +22,9 @@ final class ArtistsViewModel {
 
     // MARK: - Init
     
-    init(repository: ArtistsRepositoryType) {
+    init(repository: ArtistsRepositoryType, delegate: ArtistViewControllerDelegate) {
         self.repository = repository
+        self.delegate = delegate
     }
     
     // MARK: - Inputs
