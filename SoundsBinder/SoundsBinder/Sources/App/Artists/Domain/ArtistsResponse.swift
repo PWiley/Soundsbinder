@@ -20,11 +20,13 @@ struct ArtistsResponse: Codable {
         let id: Int
         let name: String
         let pictureURLString: String
+        //let imageData: Data
 
         enum CodingKeys: String, CodingKey {
             case id
             case name
             case pictureURLString = "picture_medium"
+            //case imageData = "image"
         }
     }
 }

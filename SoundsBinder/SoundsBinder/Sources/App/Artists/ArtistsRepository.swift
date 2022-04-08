@@ -63,7 +63,6 @@ extension Artist {
     init(item: ArtistsResponse.Artist) {
         self.id = item.id
         self.name = item.name
-        //self.imageData = item.data
         self.pictureMedium = item.pictureURLString
     }
 }

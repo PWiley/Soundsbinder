@@ -38,7 +38,7 @@ extension ArtistCoordinator: ArtistViewControllerDelegate {
     func didSelect(artist: Artist) {
         let viewController = screens.createDetailsViewController(artist: artist)
         presenter.pushViewController(viewController,
-                                     animated: true)
+                                     animated: false)
     }
     
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class ArtistCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -16,8 +15,8 @@ final class ArtistCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         var image = UIImageView()
+        image.image = UIImage(named: "Avatar")
         image.contentMode = .scaleToFill
-        //image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
@@ -26,10 +25,7 @@ final class ArtistCell: UICollectionViewCell {
         label.text = ""
         label.textColor = .white
         label.textAlignment = .center
-        // label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
-        // label.font = .systemFont(ofSize: 15, weight: .semibold)
-        //label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -74,19 +70,8 @@ final class ArtistCell: UICollectionViewCell {
     // MARK: - Setup
     
     func configure(with item: VisibleArtist) {
-        
         label.text = item.name
-        imageView.image =  UIImage(named: "Avatar")
-        repository = ImageRepository()
-        
-        if let imageUrl = item.pictureURLString {
-            repository?.downloadImage(for: URL(string: imageUrl)!, cancelledBy: RequestCancellationToken(), callback: { [weak self] data in
-                DispatchQueue.main.async {
-                    guard let data = data else { return }
-                    self?.imageView.image = UIImage(data: data)
-                }
-            })
+        guard let imageData = item.imageData else { return }
+        imageView.image = UIImage(data: (imageData))
         }
-    }
-    
 }

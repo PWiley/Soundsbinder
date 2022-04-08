@@ -17,12 +17,25 @@ final class ImageRepository: ImageRepositoryType {
 
     private let networkClient: HTTPClient
     private let token = RequestCancellationToken()
-
+    private let cache = NSCache<NSNumber, NSData>()
     init() {
         networkClient = HTTPClient()
     }
 
     // MARK: - ImageRepositoryType
+    
+    
+    func loadImage(image: Data,
+                   artist: Artist,
+                   cancelledBy cancellationToken: RequestCancellationToken,
+                   callback: @escaping (Data?) -> Void){
+        
+        VisibleArtist(name: artist.name,
+                      pictureURLString: artist.pictureMedium,
+                      imageData: image.pngData())
+        callback(VisibleArtist)
+        
+    }
 
     func downloadImage(for url: URL,
                        cancelledBy cancellationToken: RequestCancellationToken,
@@ -39,6 +52,21 @@ final class ImageRepository: ImageRepositoryType {
             })
           
         }
+
     }
 
 
+if let image = self.cache.object(forKey: artist.pictureMedium as! NSString) {
+    print("Using a cached image for item: \(String(describing: artist.pictureMedium))")
+    VisibleArtist(name: artist.name,
+                  pictureURLString: artist.pictureMedium,
+                  imageData: image.pngData())
+} else if let imageUrl = artist.pictureMedium {
+    print("downloading an image for item: \(String(describing: artist.pictureMedium))")
+    imageRepository.downloadImage(for: URL(string: imageUrl)!, cancelledBy: RequestCancellationToken(), callback: { [weak self] data in
+        DispatchQueue.main.async {
+            guard data != nil else { return }
+            self?.cache.setObject(UIImage(data: data!)!, forKey: artist.pictureMedium! as NSString)
+        }
+    })
+}

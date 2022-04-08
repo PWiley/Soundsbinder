@@ -10,22 +10,22 @@ import Foundation
 struct Artist {
     let id: Int
     let name: String
-    //let imageData: Data?
     let pictureMedium: String?
+    var imageData: Data?
 
 }
 
 struct VisibleArtist: Equatable {
     let name: String
-    //let imageData: Data?
     let pictureURLString: String?
+    var imageData: Data? = nil
 }
 
 extension VisibleArtist {
     init(artist: Artist) {
         self.name = artist.name
-        //self.imageData = artist.imageData
         self.pictureURLString = artist.pictureMedium
+        self.imageData = artist.imageData
     }
 }
 

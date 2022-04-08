@@ -51,7 +51,12 @@ final class ArtistsViewController: UIViewController {
         bind(to: source)
         viewModel.viewDidLoad()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        bind(to: viewModel)
+        bind(to: source)
+    }
+   
     // MARK: - Private
     
     private func setupLayout() {
@@ -70,6 +75,27 @@ final class ArtistsViewController: UIViewController {
            
         }
     }
+    
+//    private func loadData() {
+//        if let _ = viewModel.cache.object(forKey: CacheKeys.moviesData as NSString) {
+//            DispatchQueue.main.async {
+//                self.handleTableViewData()
+//            }
+//        }
+//        else{
+//            showLoadingIndicator(onView: view)
+//            viewModel.fetchData {
+//                DispatchQueue.main.async {
+//                    //update UI
+//                    self.handleError()
+//                    self.handleNavigationTitle()
+//                    self.handleTableViewData()
+//                    self.removeLoadingIndicator()
+//                    self.viewModel.cacheMoviesData(self.viewModel.dataSource)
+//                }
+//            }
+//        }
+//    }
     
     private func bind(to viewModel: ArtistsViewModel) {
         viewModel.items = { [weak self] items in
