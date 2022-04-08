@@ -36,7 +36,7 @@ final class ArtistsDataSource: NSObject, UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let artistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ArtistCell
-        artistCell.configure(with: catalogArtists[indexPath.row])
+        artistCell.configure(visibleArtist: catalogArtists[indexPath.row])
         return artistCell
     }
     

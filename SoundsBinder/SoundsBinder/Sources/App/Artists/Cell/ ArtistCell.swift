@@ -11,7 +11,8 @@ final class ArtistCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private var repository: ImageRepository?
+    private var viewModel: ArtistCellViewModel?
+    private var imageProvider = ImageProvider()
     
     private lazy var imageView: UIImageView = {
         var image = UIImageView()
@@ -69,9 +70,11 @@ final class ArtistCell: UICollectionViewCell {
     }
     // MARK: - Setup
     
-    func configure(with item: VisibleArtist) {
-        label.text = item.name
-        guard let imageData = item.imageData else { return }
-        imageView.image = UIImage(data: (imageData))
+    func configure(visibleArtist: VisibleArtist) {
+        self.label.text = visibleArtist.name
+        guard let imageURL = URL(string: visibleArtist.pictureURLString!) else {return}
+        imageProvider.setImage(with: imageURL) { data in   // Warning Force unwrap
+            self.imageView.image = UIImage(data: data!)  // to correct Warning!!
         }
+    }
 }
