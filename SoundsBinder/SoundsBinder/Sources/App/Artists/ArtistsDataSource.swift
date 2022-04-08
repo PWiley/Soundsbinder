@@ -53,6 +53,7 @@ final class ArtistsDataSource: NSObject, UICollectionViewDataSource, UICollectio
             VisibleArtist(artist: $0)
         }
     }
+    
 }
 
 extension ArtistsDataSource: UICollectionViewDelegateFlowLayout {

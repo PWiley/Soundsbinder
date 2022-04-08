@@ -15,7 +15,7 @@ final class ArtistsViewModel {
     private let repository: ArtistsRepositoryType
     private let imageRepository = ImageRepository()
     
-    private let cache = NSCache<NSString , UIImage>()
+    let cache = NSCache<NSString , UIImage>()
     
     private var artists: [Artist] = [] {
         didSet {
@@ -40,16 +40,17 @@ final class ArtistsViewModel {
     }
     
     func didPressSearch(for name: String) {
-        repository.searchArtists(for: name) { [ weak self] result in
+        repository.searchArtists(for: name) { [weak self] result in
             switch result {
             case .success(let artists):
-                self?.artists = artists
-                self?.cacheArtistsData(artists: artists)
+                if artists.isEmpty == false {
+                    self?.artists = (self?.updateImageData(artists: artists))!
+                }
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
             }
+            }
         }
-    }
     
     func didSelectItem(index: Int) {
         guard artists.indices.contains(index) else {
@@ -60,29 +61,34 @@ final class ArtistsViewModel {
         delegate?.didSelect(artist: artist)
     }
     
-    func cacheArtistsData(artists: [Artist]) {
-        
+    func updateImageData(artists: [Artist]) -> [Artist] {
         for artist in artists {
-            
-//            if let image = self.cache.object(forKey: artist.pictureMedium as! NSString) {
-//                print("Using a cached image for item: \(String(describing: artist.pictureMedium))")
-//                VisibleArtist(name: artist.name,
-//                              pictureURLString: artist.pictureMedium,
-//                              imageData: image.pngData())
-//            } else if let imageUrl = artist.pictureMedium {
-//                print("downloading an image for item: \(String(describing: artist.pictureMedium))")
-//                imageRepository.downloadImage(for: URL(string: imageUrl)!, cancelledBy: RequestCancellationToken(), callback: { [weak self] data in
-//                    DispatchQueue.main.async {
-//                        guard data != nil else { return }
-//                        self?.cache.setObject(UIImage(data: data!)!, forKey: artist.pictureMedium! as NSString)
-//                    }
-//                })
-//            }
-
+            guard let url = URL(string: artist.pictureMedium!) else {return}
+            imageRepository.downloadImage(for: url) { [weak self] result in
+                switch result {
+                case .some(let imageData):
+                    artist.imageData = imageData.pngData()
+                case .none():
+                    assertionFailure(error.localizedDescription)
+                }
+            }
         }
+    }
         
-       
-        
+    func cacheImageArtist(image: UIImage?, imageUrl: String) {
+        guard let image = image else {return}
+        cache.setObject(image, forKey: imageUrl as NSString)
+    }
+    
+    func fetchData(imageUrl: URL) {
+        imageRepository.downloadImage(for: imageUrl) { [weak self] result in
+            switch result {
+            case .none:
+                print("Not possible to retrieve the data")
+            case .some(let image):
+                print("Everything was perfect")
+            }
+        }
     }
     
    

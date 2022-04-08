@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ImageRepositoryType {
-    func downloadImage(for url: URL, cancelledBy cancellationToken: RequestCancellationToken, callback: @escaping (Data?) -> Void)
+    func downloadImage(for url: URL, callback: @escaping (Data?) -> Void)
 }
 
 final class ImageRepository: ImageRepositoryType {
@@ -25,20 +25,7 @@ final class ImageRepository: ImageRepositoryType {
     // MARK: - ImageRepositoryType
     
     
-    func loadImage(image: Data,
-                   artist: Artist,
-                   cancelledBy cancellationToken: RequestCancellationToken,
-                   callback: @escaping (Data?) -> Void){
-        
-        VisibleArtist(name: artist.name,
-                      pictureURLString: artist.pictureMedium,
-                      imageData: image.pngData())
-        callback(VisibleArtist)
-        
-    }
-
     func downloadImage(for url: URL,
-                       cancelledBy cancellationToken: RequestCancellationToken,
                        callback: @escaping (Data?) -> Void) {
         let request = URLRequest(url: url)
         networkClient
@@ -55,18 +42,18 @@ final class ImageRepository: ImageRepositoryType {
 
     }
 
-
-if let image = self.cache.object(forKey: artist.pictureMedium as! NSString) {
-    print("Using a cached image for item: \(String(describing: artist.pictureMedium))")
-    VisibleArtist(name: artist.name,
-                  pictureURLString: artist.pictureMedium,
-                  imageData: image.pngData())
-} else if let imageUrl = artist.pictureMedium {
-    print("downloading an image for item: \(String(describing: artist.pictureMedium))")
-    imageRepository.downloadImage(for: URL(string: imageUrl)!, cancelledBy: RequestCancellationToken(), callback: { [weak self] data in
-        DispatchQueue.main.async {
-            guard data != nil else { return }
-            self?.cache.setObject(UIImage(data: data!)!, forKey: artist.pictureMedium! as NSString)
-        }
-    })
-}
+//
+//if let image = self.cache.object(forKey: artist.pictureMedium as! NSString) {
+//    print("Using a cached image for item: \(String(describing: artist.pictureMedium))")
+//    VisibleArtist(name: artist.name,
+//                  pictureURLString: artist.pictureMedium,
+//                  imageData: image.pngData())
+//} else if let imageUrl = artist.pictureMedium {
+//    print("downloading an image for item: \(String(describing: artist.pictureMedium))")
+//    imageRepository.downloadImage(for: URL(string: imageUrl)!, cancelledBy: RequestCancellationToken(), callback: { [weak self] data in
+//        DispatchQueue.main.async {
+//            guard data != nil else { return }
+//            self?.cache.setObject(UIImage(data: data!)!, forKey: artist.pictureMedium! as NSString)
+//        }
+//    })
+//}
