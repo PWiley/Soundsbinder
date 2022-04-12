@@ -74,7 +74,11 @@ final class ArtistCell: UICollectionViewCell {
         self.label.text = visibleArtist.name
         guard let imageURL = URL(string: visibleArtist.pictureURLString!) else {return}
         imageProvider.setImage(with: imageURL) { data in   // Warning Force unwrap
-            self.imageView.image = UIImage(data: data!)  // to correct Warning!!
+            DispatchQueue.main.async {
+                guard let data = data else {return}
+                self.imageView.image = UIImage(data: data)  // to correct Warning!!
+            }
+            
         }
     }
 }
