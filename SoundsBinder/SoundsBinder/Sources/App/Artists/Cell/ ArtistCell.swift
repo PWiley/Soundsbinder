@@ -12,7 +12,8 @@ final class ArtistCell: UICollectionViewCell {
     // MARK: - Properties
     
     private var viewModel: ArtistCellViewModel?
-    private var imageProvider = ImageProvider()
+    private var imageProvider: ImageProvider?
+    private let cancelToken = RequestCancellationToken()
     
     private lazy var imageView: UIImageView = {
         var image = UIImageView()
@@ -70,13 +71,14 @@ final class ArtistCell: UICollectionViewCell {
     }
     // MARK: - Setup
     
-    func configure(visibleArtist: VisibleArtist) {
-        self.label.text = visibleArtist.name
-        guard let imageURL = URL(string: visibleArtist.pictureURLString!) else {return}
-        imageProvider.setImage(with: imageURL) { data in   // Warning Force unwrap
+    func configure(artist: VisibleArtist, imageProvider: ImageProvider) {
+        self.label.text = artist.name
+        guard let imageURL = URL(string: artist.pictureURLString!) else {return}
+        imageProvider.setImage(with: imageURL,
+                                cancellationToken: cancelToken) { image in
             DispatchQueue.main.async {
-                guard let data = data else {return}
-                self.imageView.image = UIImage(data: data)  // to correct Warning!!
+                guard let image = image else {return}
+                self.imageView.image = image
             }
             
         }

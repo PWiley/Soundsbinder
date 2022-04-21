@@ -17,7 +17,6 @@ final class ImageRepository: ImageRepositoryType {
     // MARK: - Properties
     
     private let networkClient: HTTPClient
-    private let token = RequestCancellationToken()
     
     init(networkClient: HTTPClient) {
         self.networkClient = networkClient
@@ -29,7 +28,7 @@ final class ImageRepository: ImageRepositoryType {
                        cancelledBy cancellationToken: RequestCancellationToken,
                        callback: @escaping (Data?) -> Void) {
         let request = URLRequest(url: url)
-        networkClient.send(request: request, token: token) { response in
+        networkClient.send(request: request, token: cancellationToken) { response in
             switch response {
             case .success(let data):
                 callback(data)

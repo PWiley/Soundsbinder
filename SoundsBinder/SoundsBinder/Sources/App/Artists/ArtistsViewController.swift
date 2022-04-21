@@ -10,18 +10,23 @@ import SnapKit
 
 final class ArtistsViewController: UIViewController {
    
+    // MARK: - Properties
+    
+    var imageProvider: ImageProvider!
+    
     // MARK: - Private Properties
     
     private let viewModel:  ArtistsViewModel!
-    private lazy var source = ArtistsDataSource(collectionView: collectionView,
-                                                viewModel: viewModel)
+    
+    private lazy var source: ArtistsDataSource = {
+        return ArtistsDataSource(imageProvider: imageProvider)
+    }()
 
     private lazy var searchController = UISearchController(searchResultsController: nil)
         
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = .init()
         layout.sectionInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
-        //layout.itemSize = CGSize(width: 60, height: 60)
         layout.minimumInteritemSpacing = 20
         layout.minimumLineSpacing = 20
         let collectionView = UICollectionView(frame: self.view.frame,collectionViewLayout: layout)
@@ -46,6 +51,7 @@ final class ArtistsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = source
         setupLayout()
         bind(to: viewModel)
         bind(to: source)
