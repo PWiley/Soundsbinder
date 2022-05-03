@@ -6,14 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ArtistCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
     private var viewModel: ArtistCellViewModel?
-    private var imageProvider: ImageProvider?
-    private let cancelToken = RequestCancellationToken()
     
     private lazy var imageView: UIImageView = {
         var image = UIImageView()
@@ -31,12 +30,12 @@ final class ArtistCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.distribution = .fillProportionally
-        stackView.axis = .vertical
-        return stackView
-    }()
+//    private lazy var stackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.distribution = .fillProportionally
+//        stackView.axis = .vertical
+//        return stackView
+//    }()
     
     // MARK: - Init
     
@@ -66,21 +65,22 @@ final class ArtistCell: UICollectionViewCell {
             $0.rightMargin.equalToSuperview()
             $0.bottomMargin.equalToSuperview()
         }
-        
-        
     }
     // MARK: - Setup
-    
-    func configure(artist: VisibleArtist, imageProvider: ImageProvider) {
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imageView.image = UIImage(named: "Avatar")
+    }
+
+    func configure(artist: VisibleArtist) {
         self.label.text = artist.name
         guard let imageURL = URL(string: artist.pictureURLString!) else {return}
-        imageProvider.setImage(with: imageURL,
-                                cancellationToken: cancelToken) { image in
+        ImageProvider.shared.setImage(with: imageURL) { image in
             DispatchQueue.main.async {
                 guard let image = image else {return}
                 self.imageView.image = image
             }
-            
         }
     }
 }

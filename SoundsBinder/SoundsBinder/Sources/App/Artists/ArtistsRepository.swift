@@ -17,15 +17,14 @@ final class ArtistsRepository: ArtistsRepositoryType {
     // MARK: - Properties
     
     private let client: HTTPClientType
-    private let parser: JSONParserType
+    private let parser = JSONParser()
     private let token = RequestCancellationToken()
     
     
     // MARK: - Initialisers
     
-    init(client: HTTPClientType, parser: JSONParserType) {
+    init(client: HTTPClientType) {
         self.client = client
-        self.parser = parser
     }
     
     func searchArtists(for name: String,

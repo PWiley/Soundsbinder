@@ -12,18 +12,15 @@ class Context {
     // MARK: - Properties
     
     let client: HTTPClient
-    let parser: JSONParserType
+   
     
     // MARK: - Methods
     
-    static func buildContext() -> Context {
-        return Context()
-    }
+    static func build() -> Context { Context() }
     
     // MARK: - Initialisers
     
-    init() {
-        client = HTTPClient()
-        parser = JSONParser()
+    private init() {
+        self.client = HTTPClient()
     }
 }

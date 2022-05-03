@@ -29,10 +29,9 @@ protocol ArtistViewControllerDelegate: AnyObject {
 
 extension Screens {
     func createArtistViewController(delegate: ArtistViewControllerDelegate) -> UIViewController {
-        let repository = ArtistsRepository(client: context.client, parser: context.parser)
+        let repository = ArtistsRepository(client: context.client)
         let viewModel = ArtistsViewModel(repository: repository, delegate: delegate)
-        let viewController = ArtistsViewController(viewModel: viewModel)
-        return viewController
+        return ArtistsViewController(viewModel: viewModel)
     }
 }
 
@@ -55,10 +54,8 @@ extension Screens {
 
 
 extension Screens {
-    func createDetailsViewController(artist: Artist) -> UIViewController {
-        //let repository = AlbumsRepository(client: context.client, parser: context.parser as! JSONParserType)
-        let viewModel = DetailsViewModel(artist: artist)
-        let viewController = DetailsViewController(viewModel: viewModel)
-        return viewController
-    }
+//    func createAlbumDetailsViewController(artist: Artist) -> UIViewController {
+//       let viewController = AlbumDetailsViewController()
+//       return viewController
+//    }
 }

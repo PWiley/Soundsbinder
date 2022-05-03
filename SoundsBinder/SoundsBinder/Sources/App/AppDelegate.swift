@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +16,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var coordinator: AppCoordinator!
     private var context: Context!
+    private var imageCache: NSCache<NSString, NSData>!
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        imageCache = NSCache<NSString, NSData>()
 
-        context = .buildContext()
+        context = .build()
+    
         coordinator = AppCoordinator(presenter: self, context: context)
         coordinator.start()
 

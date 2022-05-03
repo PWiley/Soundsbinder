@@ -18,14 +18,7 @@ final class ArtistsDataSource: NSObject, UICollectionViewDataSource, UICollectio
     
     // MARK: - Public Properties
     
-    var imageProvider: ImageProvider
     var didSelectItemAtIndex: ((Int) -> Void)?
-    
-    // MARK: - Initialisers
-    
-    init(imageProvider: ImageProvider) {
-        self.imageProvider = imageProvider
-    }
     
     // MARK: - UICollectionView Methods
     
@@ -35,7 +28,7 @@ final class ArtistsDataSource: NSObject, UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let artistCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ArtistCell
-        artistCell.configure(artist: catalogArtists[indexPath.row], imageProvider: imageProvider)
+        artistCell.configure(artist: catalogArtists[indexPath.row])
         return artistCell
     }
     

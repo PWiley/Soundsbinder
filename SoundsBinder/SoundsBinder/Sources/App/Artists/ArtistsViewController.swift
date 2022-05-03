@@ -12,14 +12,12 @@ final class ArtistsViewController: UIViewController {
    
     // MARK: - Properties
     
-    var imageProvider: ImageProvider!
-    
     // MARK: - Private Properties
     
     private let viewModel:  ArtistsViewModel!
     
     private lazy var source: ArtistsDataSource = {
-        return ArtistsDataSource(imageProvider: imageProvider)
+        return ArtistsDataSource()
     }()
 
     private lazy var searchController = UISearchController(searchResultsController: nil)
@@ -52,6 +50,8 @@ final class ArtistsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = source
+        collectionView.delegate = source
+        
         setupLayout()
         bind(to: viewModel)
         bind(to: source)
@@ -78,7 +78,6 @@ final class ArtistsViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalToSuperview()
-           
         }
     }
   

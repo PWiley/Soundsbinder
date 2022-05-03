@@ -49,7 +49,10 @@ final class DetailsViewController: UIViewController {
     
     func bind(to viewModel: DetailsViewModel) {
         name.text = viewModel.artist?.name
-        //if let image = UIImage(data: viewModel.artist!.image) {
+        
+//        if let image = UIImage(data: viewModel.artist!.pictureURLString) {
+//            print(image)
+//        }
         
     }
    
