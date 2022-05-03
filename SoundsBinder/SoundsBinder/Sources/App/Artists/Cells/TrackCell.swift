@@ -94,14 +94,11 @@ class TrackCell: UITableViewCell {
         self.albumTitle.text = "albumtitle"
     }
 
-    func configure(album: Album) {
-        self.trackNumber.text = album
-        guard let imageURL = URL(string: artist.pictureURLString!) else {return}
-        ImageProvider.shared.setImage(with: imageURL) { image in
-            DispatchQueue.main.async {
-                guard let image = image else {return}
-                self.imageView.image = image
-            }
+    func configure(track: Track) {
+        self.trackNumber.text = String(track.trackNumber)
+        self.trackTitle.text = track.trackTitle
+        self.albumTitle.text = track.albumTitle
+       
         }
     }
-}
+

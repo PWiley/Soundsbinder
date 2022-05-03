@@ -54,8 +54,8 @@ extension Screens {
 
 
 extension Screens {
-//    func createAlbumDetailsViewController(artist: Artist) -> UIViewController {
-//       let viewController = AlbumDetailsViewController()
-//       return viewController
-//    }
+    func createAlbumDetailsViewController(artist: Artist) -> UIViewController {
+       let viewController = AlbumDetailsViewController()
+       return viewController
+    }
 }
