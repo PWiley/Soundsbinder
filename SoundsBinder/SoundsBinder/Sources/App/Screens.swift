@@ -35,23 +35,7 @@ extension Screens {
     }
 }
 
-// MARK: - Album
-
-//protocol AlbumViewControllerDelegate: AnyObject {
-//    func didSelect(album: Album)
-//}
-//
-//extension Screens {
-//    func createAlbumViewController(delegate: AlbumViewControllerDelegate) -> UIViewController {
-//        let repository = AlbumsRepository(client: context.client, parser: context.parser as! JSONParserType)
-//        let viewModel = AlbumsViewModel(repository: repository)
-//        let viewController = AlbumsViewController(viewModel: viewModel)
-//        return viewController
-//    }
-//}
-
 // MARK: - Album Details
-
 
 extension Screens {
     func createAlbumDetailsViewController(artist: Artist) -> UIViewController {

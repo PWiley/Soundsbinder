@@ -59,7 +59,7 @@ final class AlbumDetailsViewController: UIViewController {
         view.addSubview(albumTitle)
         albumTitle.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide).inset(16)
-            $0.height.equalTo(20)
+            $0.height.equalTo(30)
         }
         
         view.addSubview(tableView)

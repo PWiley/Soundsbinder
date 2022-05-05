@@ -13,7 +13,7 @@ class AlbumDetailsCell: UITableViewCell {
     private lazy var trackNumber: UILabel = {
         let number = UILabel()
         number.text = ""
-        number.textColor = .white
+        number.textColor = .red
         number.textAlignment = .center
         number.numberOfLines = 1
         return number
@@ -21,6 +21,7 @@ class AlbumDetailsCell: UITableViewCell {
     
     private lazy var trackTitle: UILabel = {
         let title = UILabel()
+        title.backgroundColor = .blue
         title.text = ""
         title.textColor = .black
         title.textAlignment = .center
@@ -30,6 +31,7 @@ class AlbumDetailsCell: UITableViewCell {
     
     private lazy var albumTitle: UILabel = {
         let albumTitle = UILabel()
+        albumTitle.backgroundColor = .red
         albumTitle.text = ""
         albumTitle.textColor = .black
         albumTitle.textAlignment = .center
@@ -37,19 +39,10 @@ class AlbumDetailsCell: UITableViewCell {
         return albumTitle
     }()
     
-    private lazy var stackview: UIStackView = {
-        let stackview = UIStackView()
-        stackview.backgroundColor = .white
-        stackview.distribution = .fillProportionally
-        stackview.axis = .vertical
-        return stackview
-    }()
-    
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setStackViewLayout()
         setupCellLayout()
     }
     
@@ -58,31 +51,28 @@ class AlbumDetailsCell: UITableViewCell {
         setupCellLayout()
     }
 
-    func setStackViewLayout() {
-        stackview.addSubview(trackTitle)
-        trackTitle.snp.makeConstraints {
-            $0.left.top.right.equalToSuperview()
-            $0.height.equalTo(15)
-        }
-        stackview.addSubview(albumTitle)
-        albumTitle.snp.makeConstraints{
-            $0.left.right.bottom.equalToSuperview()
-            $0.height.equalTo(15)
-            
-        }
-    }
+   
     func setupCellLayout() {
+        
         contentView.addSubview(trackNumber)
         trackNumber.snp.makeConstraints {
-            $0.left.top.bottom.equalToSuperview()
-            $0.width.equalTo(10)
-        }
-        contentView.addSubview(stackview)
-        stackview.snp.makeConstraints {
-            $0.left.equalTo(trackNumber.snp.right)
-            $0.right.top.bottom.equalToSuperview()
+            $0.height.width.equalTo(30)
+            $0.leading.top.equalToSuperview()
         }
         
+        contentView.addSubview(trackTitle)
+        trackTitle.snp.makeConstraints {
+            $0.leading.equalTo(trackNumber.snp.trailing)
+            $0.trailing.top.equalToSuperview()
+            $0.height.equalTo(contentView).dividedBy(2)
+        }
+        contentView.addSubview(albumTitle)
+        albumTitle.snp.makeConstraints {
+            $0.leading.equalTo(trackNumber.snp.trailing)
+            $0.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(contentView).dividedBy(2)
+        }
+
     }
     
     // MARK: - Setup
