@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TrackCell: UITableViewCell {
+class AlbumDetailsCell: UITableViewCell {
     
     private lazy var trackNumber: UILabel = {
         let number = UILabel()
@@ -22,7 +22,7 @@ class TrackCell: UITableViewCell {
     private lazy var trackTitle: UILabel = {
         let title = UILabel()
         title.text = ""
-        title.textColor = .white
+        title.textColor = .black
         title.textAlignment = .center
         title.numberOfLines = 1
         return title
@@ -31,7 +31,7 @@ class TrackCell: UITableViewCell {
     private lazy var albumTitle: UILabel = {
         let albumTitle = UILabel()
         albumTitle.text = ""
-        albumTitle.textColor = .white
+        albumTitle.textColor = .black
         albumTitle.textAlignment = .center
         albumTitle.numberOfLines = 1
         return albumTitle
@@ -39,7 +39,7 @@ class TrackCell: UITableViewCell {
     
     private lazy var stackview: UIStackView = {
         let stackview = UIStackView()
-        stackview.backgroundColor = .blue
+        stackview.backgroundColor = .white
         stackview.distribution = .fillProportionally
         stackview.axis = .vertical
         return stackview
@@ -79,7 +79,7 @@ class TrackCell: UITableViewCell {
         }
         contentView.addSubview(stackview)
         stackview.snp.makeConstraints {
-            $0.left.equalTo(trackNumber.rightAnchor as! ConstraintRelatableTarget)
+            $0.left.equalTo(trackNumber.snp.right)
             $0.right.top.bottom.equalToSuperview()
         }
         

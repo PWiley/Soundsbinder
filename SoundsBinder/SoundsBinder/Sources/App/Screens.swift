@@ -50,7 +50,7 @@ extension Screens {
 //    }
 //}
 
-// MARK: - Details
+// MARK: - Album Details
 
 
 extension Screens {

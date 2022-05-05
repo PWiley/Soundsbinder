@@ -36,8 +36,8 @@ final class ArtistCoordinator {
 
 extension ArtistCoordinator: ArtistViewControllerDelegate {
     func didSelect(artist: Artist) {
-        //let viewController = screens.createAlbumDetailsViewController(artist: artist)
-        //presenter.pushViewController(viewController,animated: false)
+        let viewController = screens.createAlbumDetailsViewController(artist: artist)
+        presenter.pushViewController(viewController,animated: false)
     }
     
 }
