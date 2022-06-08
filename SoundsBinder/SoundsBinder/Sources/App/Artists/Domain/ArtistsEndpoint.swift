@@ -19,3 +19,7 @@ final class ArtistsEndpoint: Endpoint {
         self.queryParameters = ["q": "\(name)"]
     }
 }
+
+
+//https://api.deezer.com/artist/1007/top?limit=50
+

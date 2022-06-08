@@ -7,14 +7,16 @@
 
 import Foundation
 
+
+struct Album {
+    var tracks: [Track]
+
+}
+
 struct Track {
     var trackNumber: Int
     var trackTitle: String
     var albumTitle: String
 }
 
-struct Album {
-    var tracks: [Track]
-    
-}
 
