@@ -7,10 +7,8 @@
 
 import Foundation
 
-
 struct Album {
     var tracks: [Track]
-
 }
 
 struct Track {
@@ -18,5 +16,3 @@ struct Track {
     var trackTitle: String
     var albumTitle: String
 }
-
-

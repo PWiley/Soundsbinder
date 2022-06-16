@@ -11,13 +11,14 @@ struct Artist {
     let id: Int
     let name: String
     let pictureMedium: String?
-    let trackList: [Track]
+    let tracklist: String
 }
 
 struct VisibleArtist: Equatable {
     let id: Int
     let name: String
     let pictureURLString: String?
+    let tracklist: String
 }
 
 extension VisibleArtist {
@@ -25,6 +26,7 @@ extension VisibleArtist {
         self.id = artist.id
         self.name = artist.name
         self.pictureURLString = artist.pictureMedium
+        self.tracklist = artist.tracklist
     }
 }
 

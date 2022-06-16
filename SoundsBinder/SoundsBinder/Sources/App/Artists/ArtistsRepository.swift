@@ -63,5 +63,6 @@ extension Artist {
         self.id = item.id
         self.name = item.name
         self.pictureMedium = item.pictureURLString
+        self.tracklist = item.tracklist
     }
 }
