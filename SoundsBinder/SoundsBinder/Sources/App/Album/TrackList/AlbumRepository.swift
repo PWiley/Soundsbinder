@@ -32,11 +32,11 @@ final class AlbumRepository: AlbumRepositoryType {
         let request = URLRequest(url: url)
         networkClient.send(request: request, token: token) { response in
             switch response {
-            case .success(let data):
+            case .success(_): break
                 
-                callback(data)
-            case .failure:
-                callback(nil)
+                //callback(data)
+            case .failure: break
+                //callback(nil)
             }
         }
     }
