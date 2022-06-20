@@ -50,7 +50,7 @@ final class TabBarCoordinator: NSObject, UITabBarControllerDelegate {
     
     private var artistCoordinator: ArtistCoordinator?
     
-    //private var albumCoordinator: AlbumCoordinator?
+    private var albumCoordinator: AlbumCoordinator?
     
     private var tabBarSource: TabBarSourceType = TabBarSource()
 
@@ -86,11 +86,11 @@ final class TabBarCoordinator: NSObject, UITabBarControllerDelegate {
         artistCoordinator?.start()
     }
     
-//    func showSearchAlbum() {
-//        albumCoordinator = AlbumCoordinator(presenter: tabBarSource[.album],
-//                                                    context: context)
-//        albumCoordinator?.start()
-//    }
+    func showSearchAlbum() {
+        albumCoordinator = AlbumCoordinator(presenter: tabBarSource[.album],
+                                                    context: context)
+        albumCoordinator?.start()
+    }
     
 }
 

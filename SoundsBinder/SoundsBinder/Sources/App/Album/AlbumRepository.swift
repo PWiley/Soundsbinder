@@ -7,30 +7,26 @@
 
 import Foundation
 
-struct AlbumResponse: Codable {
-    
-}
 
 protocol AlbumRepositoryType {
-    func downloadAlbum(for url: URL, callback: @escaping (Result<AlbumResponse, Error>) -> Void)
+    func searchAlbum(for url: URL, callback: @escaping (Result<Album, Error>) -> Void)
 }
 
 final class AlbumRepository: AlbumRepositoryType {
     
     // MARK: - Properties
     
-    private let networkClient: HTTPClient
+    private let client: HTTPClientType
+    private let parser = JSONParser()
     private let token = RequestCancellationToken()
     
-    init(networkClient: HTTPClient) {
-        self.networkClient = networkClient
+    init(client: HTTPClientType) {
+        self.client = client
     }
-    
-    // MARK: - ImageRepositoryType
-    
-    func downloadAlbum(for url: URL, callback: @escaping (Result<AlbumResponse, Error>) -> Void) {
+  
+    func searchAlbum(for url: URL, callback: @escaping (Result<Album, Error>) -> Void) {
         let request = URLRequest(url: url)
-        networkClient.send(request: request, token: token) { response in
+        client.send(request: request, token: token) { response in
             switch response {
             case .success(_): break
                 

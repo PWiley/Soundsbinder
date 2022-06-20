@@ -1,5 +1,5 @@
 //
-//  AlbumdetailsDataSource.swift
+//  AlbumDataSource.swift
 //  SoundsBinder
 //
 //  Created by Patrick Wiley on 05.05.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AlbumDetailsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class AlbumDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var album: [Track] = [Track(trackNumber: 1,
                                 trackTitle: "Till the end", albumTitle: "The album"),

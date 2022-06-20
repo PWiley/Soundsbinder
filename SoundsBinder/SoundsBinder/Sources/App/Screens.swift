@@ -35,11 +35,14 @@ extension Screens {
     }
 }
 
-// MARK: - Album Details
+// MARK: - Album
+
 
 extension Screens {
-    func createAlbumDetailsViewController(artist: Artist) -> UIViewController {
-       let viewController = AlbumDetailsViewController()
+    func createAlbumViewController() -> UIViewController {
+        let repository = AlbumRepository(client: context.client)
+        let viewModel = AlbumViewModel(repository: repository)
+        let viewController = AlbumViewController(viewModel: viewModel)
        return viewController
     }
 }

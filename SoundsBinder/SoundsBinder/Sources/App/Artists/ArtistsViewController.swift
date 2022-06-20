@@ -10,8 +10,6 @@ import SnapKit
 
 final class ArtistsViewController: UIViewController {
    
-    // MARK: - Properties
-    
     // MARK: - Private Properties
     
     private let viewModel:  ArtistsViewModel!

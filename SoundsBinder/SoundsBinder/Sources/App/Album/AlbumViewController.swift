@@ -1,5 +1,5 @@
 //
-//  AlbumDetailsViewController.swift
+//  AlbumViewController.swift
 //  SoundsBinder
 //
 //  Created by Patrick Wiley on 03.05.22.
@@ -8,11 +8,14 @@
 import UIKit
 import SnapKit
 
-final class AlbumDetailsViewController: UIViewController {
+final class AlbumViewController: UIViewController {
     
-    private lazy var source: AlbumDetailsDataSource = {
-        let source = AlbumDetailsDataSource()
-        return source
+    // MARK: - Private Properties
+    
+    private let viewModel: AlbumViewModel!
+    
+    private lazy var source: AlbumDataSource = {
+        return AlbumDataSource()
     }()
    
     private lazy var albumTitle: UILabel = {
@@ -32,7 +35,8 @@ final class AlbumDetailsViewController: UIViewController {
     
     // MARK: - Init
     
-    init() {
+    init(viewModel: AlbumViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
