@@ -12,8 +12,7 @@ class Context {
     // MARK: - Properties
     
     let client: HTTPClient
-   
-    
+
     // MARK: - Methods
     
     static func build() -> Context { Context() }

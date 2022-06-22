@@ -14,7 +14,7 @@ struct ArtistCellViewModel {
 
    init(visibleArtist: VisibleArtist) {
       self.name = visibleArtist.name
-       self.imageURL = URL(string: visibleArtist.pictureURLString!)! // TODO
+       self.imageURL = URL(string: visibleArtist.pictureURLString)! // TODO
    }
   
 }

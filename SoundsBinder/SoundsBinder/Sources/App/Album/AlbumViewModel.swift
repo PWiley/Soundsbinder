@@ -29,15 +29,16 @@ final class AlbumViewModel {
     }
     
     func didPressAlbum(for artist: Artist) {
-        repository.searchAlbum(for: URL(String: artist.tracklist)) {
-            [weak self] result in
-            switch result {
-            case .success(let album):
-                self?.album = album
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-                                 }
-        }
+        print(artist.tracklist)
+//        repository.searchAlbum(for: URL(String: artist.tracklist)) {
+//            [weak self] result in
+//            switch result {
+//            case .success(let album):
+//                self?.album = album
+//            case .failure(let error):
+//                assertionFailure(error.localizedDescription)
+//            }
+//        }
     }
     // MARK: - Outputs
     

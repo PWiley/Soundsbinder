@@ -10,14 +10,14 @@ import Foundation
 struct Artist {
     let id: Int
     let name: String
-    let pictureMedium: String?
+    let pictureMedium: String
     let tracklist: String
 }
 
 struct VisibleArtist: Equatable {
     let id: Int
     let name: String
-    let pictureURLString: String?
+    let pictureURLString: String
     let tracklist: String
 }
 

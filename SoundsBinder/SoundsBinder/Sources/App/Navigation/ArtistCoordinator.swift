@@ -39,5 +39,4 @@ extension ArtistCoordinator: ArtistViewControllerDelegate {
         let viewController = screens.createAlbumViewController()
         presenter.pushViewController(viewController,animated: false)
     }
-    
 }

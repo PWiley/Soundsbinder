@@ -75,7 +75,7 @@ final class ArtistCell: UICollectionViewCell {
 
     func configure(artist: VisibleArtist) {
         self.label.text = artist.name
-        guard let imageURL = URL(string: artist.pictureURLString!) else {return}
+        guard let imageURL = URL(string: artist.pictureURLString) else {return}
         ImageProvider.shared.setImage(with: imageURL) { image in
             DispatchQueue.main.async {
                 guard let image = image else {return}
