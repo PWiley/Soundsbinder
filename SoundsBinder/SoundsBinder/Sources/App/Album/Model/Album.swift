@@ -7,11 +7,8 @@
 
 import Foundation
 
-struct Album {
-    var tracks: [Track]
-}
 
-struct Track {
+struct Album {
     var trackNumber: Int
     var trackTitle: String
     var albumTitle: String

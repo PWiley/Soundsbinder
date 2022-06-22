@@ -12,9 +12,9 @@ final class AlbumViewModel {
     // MARK: - Private Properties
     
     private let repository: AlbumRepositoryType
-    private var album: Album? = nil {
+    private var track: [Track]? = [] {
         didSet {
-            item?(album!)
+            item?(track!)
         }
     }
     
@@ -25,7 +25,7 @@ final class AlbumViewModel {
     }
     // MARK: - Inputs
     func viewDidLoad() {
-        album = nil
+        track = []
     }
     
     func didPressAlbum(for artist: Artist) {
@@ -42,5 +42,5 @@ final class AlbumViewModel {
     }
     // MARK: - Outputs
     
-    var item: InputClosure<Album>?
+    var item: InputClosure<[Track]>?
 }

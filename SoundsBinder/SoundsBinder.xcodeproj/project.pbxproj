@@ -34,6 +34,7 @@
 		87913CC02860A0A7005E9C9D /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87913CBC2860A0A7005E9C9D /* AlbumViewModel.swift */; };
 		87913CC12860A0A7005E9C9D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87913CBD2860A0A7005E9C9D /* AlbumViewController.swift */; };
 		87B9EE3E27E4A12800B9FD2C /* ArtistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B9EE3D27E4A12800B9FD2C /* ArtistCoordinator.swift */; };
+		87DC863528636985004DCB37 /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DC863428636985004DCB37 /* AlbumResponse.swift */; };
 		8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253E2277AF075002DFEB8 /* Helper.swift */; };
 		8E2253F3277B008B002DFEB8 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */; };
 		8E2253F4277B008B002DFEB8 /* ArtistsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */; };
@@ -86,6 +87,7 @@
 		87913CBC2860A0A7005E9C9D /* AlbumViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		87913CBD2860A0A7005E9C9D /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		87B9EE3D27E4A12800B9FD2C /* ArtistCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCoordinator.swift; sourceTree = "<group>"; };
+		87DC863428636985004DCB37 /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
 		8E2253E2277AF075002DFEB8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		8E2253F0277B008B002DFEB8 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsViewModel.swift; path = SoundsBinder/Sources/App/Artists/ArtistsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8E2253F1277B008B002DFEB8 /* ArtistsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtistsRepository.swift; path = SoundsBinder/Sources/App/Artists/ArtistsRepository.swift; sourceTree = SOURCE_ROOT; };
@@ -170,6 +172,7 @@
 		872A549D27E1F2F900A2F24F /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				87DC86332863695B004DCB37 /* Domain */,
 				87913CBB2860A0A7005E9C9D /* AlbumDataSource.swift */,
 				87913CBD2860A0A7005E9C9D /* AlbumViewController.swift */,
 				87913CBC2860A0A7005E9C9D /* AlbumViewModel.swift */,
@@ -213,6 +216,14 @@
 				873D5BC128213E480004B06B /* AlbumDetailsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		87DC86332863695B004DCB37 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				87DC863428636985004DCB37 /* AlbumResponse.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		8E2253E1277AEEEC002DFEB8 /* Domain */ = {
@@ -454,6 +465,7 @@
 				8E2253E3277AF075002DFEB8 /* Helper.swift in Sources */,
 				87B9EE3E27E4A12800B9FD2C /* ArtistCoordinator.swift in Sources */,
 				871AD3B827E326BB00550553 /* Context.swift in Sources */,
+				87DC863528636985004DCB37 /* AlbumResponse.swift in Sources */,
 				871200892850CE4F00D9F662 /* ArtistsResponse.swift in Sources */,
 				876132A527970AE700CBE3BA /* ArtistsEndpoint.swift in Sources */,
 				871AD3B927E326BB00550553 /* Screens.swift in Sources */,

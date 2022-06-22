@@ -21,9 +21,9 @@ final class ArtistsViewModel {
         }
     }
     
-    private var artist: Artist = Artist(id: 1, name: "artist", pictureMedium: "picture", tracklist: "tracklist") {
+    private var tracks: [Track] = [] {
         didSet {
-            artistAlbum?(artist)
+            album?(tracks)
         }
     }
     private var delegate: ArtistViewControllerDelegate?
@@ -60,11 +60,11 @@ final class ArtistsViewModel {
             print("FatalError")
             return
         }
-        self.artist = artists[index]
-        albumRepository.searchAlbum(for: artist.tracklist) { [weak self] result in
+        //self.artist = artists[index]
+        albumRepository.searchAlbum(for: artists[index].tracklist) { [weak self] result in
             switch result {
-            case .success(let album):
-                self.artistAlbum = album
+            case .success(let tracks):
+                self?.tracks = tracks
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
             }
@@ -75,6 +75,6 @@ final class ArtistsViewModel {
     
     var screenTitle: InputClosure<String>?
     var items: InputClosure<[Artist]>?
-    var artistAlbum: InputClosure<Artist>?
+    var album: InputClosure<[Track]>?
     
 }
