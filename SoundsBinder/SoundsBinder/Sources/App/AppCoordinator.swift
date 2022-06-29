@@ -14,7 +14,7 @@ final class AppCoordinator {
     
     private unowned var presenter: AppDelegate
     private let context: Context
-    private var tabBarCoordinator: TabBarCoordinator?
+    private var artistCoordinator: ArtistCoordinator?
 
     // MARK: - Initialisers
     
@@ -32,7 +32,7 @@ final class AppCoordinator {
     }
     
     private func showArtist() {
-        tabBarCoordinator = TabBarCoordinator(presenter: presenter.window!, context: context)
-        tabBarCoordinator?.start()
+        artistCoordinator = ArtistCoordinator(presenter: presenter.window!, context: context)
+        artistCoordinator?.start()
     }
 }

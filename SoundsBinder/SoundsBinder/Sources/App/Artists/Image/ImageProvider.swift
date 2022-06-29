@@ -39,10 +39,10 @@ final class ImageProvider {
         let cachedImage = CachedImage(with: NSString(string: uuid), in: cache)
         switch cachedImage {
         case .exists(let data):
-            print("Exists: \(data)")
+            //print("Exists: \(data)")
             callback(UIImage(data: data as Data))
         case .new:
-            print("New: ")
+            //print("New: ")
             repository.downloadImage(for: url, cancelledBy: token) { (data) in
                 guard let data = data else {return}
                 self.cache.setObject(data as NSData, forKey: NSString(string: uuid))

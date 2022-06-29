@@ -23,15 +23,10 @@ final class Screens {
 
 // MARK: - Artist
 
-protocol ArtistViewControllerDelegate: AnyObject {
-    func didSelect(artist: Artist)
-}
-
 extension Screens {
-    func createArtistViewController(delegate: ArtistViewControllerDelegate) -> UIViewController {
+    func createArtistViewController(delegate: ArtistsViewModelDelegate) -> UIViewController {
         let artistRepository = ArtistsRepository(client: context.client)
-        let albumRepository = AlbumRepository(client: context.client)
-        let viewModel = ArtistsViewModel(artistRepository: artistRepository, albumRepository: albumRepository, delegate: delegate)
+        let viewModel = ArtistsViewModel(artistRepository: artistRepository, delegate: delegate)
         return ArtistsViewController(viewModel: viewModel)
     }
 }
@@ -40,9 +35,9 @@ extension Screens {
 
 
 extension Screens {
-    func createAlbumViewController() -> UIViewController {
+    func createAlbumViewController(trackList: String) -> UIViewController {
         let repository = AlbumRepository(client: context.client)
-        let viewModel = AlbumViewModel(repository: repository)
+        let viewModel = AlbumViewModel(repository: repository, trackList: trackList)
         let viewController = AlbumViewController(viewModel: viewModel)
        return viewController
     }

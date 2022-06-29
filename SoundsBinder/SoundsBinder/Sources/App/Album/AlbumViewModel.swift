@@ -12,35 +12,40 @@ final class AlbumViewModel {
     // MARK: - Private Properties
     
     private let repository: AlbumRepositoryType
-    private var track: [Track]? = [] {
+    private var tracks: [Track]? = [] {
         didSet {
-            item?(track!)
+            items?(tracks!)
         }
     }
+
+    private let trackList: String
     
     // MARK: - Init
     
-    init(repository: AlbumRepositoryType) {
+    init(repository: AlbumRepositoryType, trackList: String) {
         self.repository = repository
+        self.trackList = trackList
     }
     // MARK: - Inputs
+    
+   
     func viewDidLoad() {
-        track = []
+        tracks = []
+        didPressAlbum(for: trackList)
     }
     
-    func didPressAlbum(for artist: Artist) {
-        print(artist.tracklist)
-//        repository.searchAlbum(for: URL(String: artist.tracklist)) {
-//            [weak self] result in
-//            switch result {
-//            case .success(let album):
-//                self?.album = album
-//            case .failure(let error):
-//                assertionFailure(error.localizedDescription)
-//            }
-//        }
+    func didPressAlbum(for trackList: String) {
+        repository.searchAlbum(for: URL(string: trackList)!) {
+            [weak self] result in
+            switch result {
+            case .success(let tracks):
+                self?.tracks = tracks
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+            }
+        }
     }
     // MARK: - Outputs
     
-    var item: InputClosure<[Track]>?
+    var items: InputClosure<[Track]>?
 }

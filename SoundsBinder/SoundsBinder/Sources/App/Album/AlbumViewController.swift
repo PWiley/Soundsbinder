@@ -17,7 +17,7 @@ final class AlbumViewController: UIViewController {
     private lazy var source: AlbumDataSource = {
         return AlbumDataSource()
     }()
-   
+    
     private lazy var albumTitle: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -51,15 +51,15 @@ final class AlbumViewController: UIViewController {
         tableView.dataSource = source
         tableView.delegate = source
         setupLayout()
-      
+        bind(to: viewModel)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-       
+        bind(to: viewModel)
     }
     
     func setupLayout() {
-       
         view.addSubview(albumTitle)
         albumTitle.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide).inset(16)
@@ -72,6 +72,16 @@ final class AlbumViewController: UIViewController {
             $0.top.equalTo(albumTitle.snp.bottom)
         }
         
+    }
+    
+    private func bind(to viewModel: AlbumViewModel) {
+        viewModel.items = { [ weak self] tracks in
+            DispatchQueue.main.async {
+                self?.source.update(with: tracks)
+                self?.tableView.reloadData()
+            }
+            
+        }
     }
 }
 

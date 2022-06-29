@@ -85,9 +85,9 @@ class AlbumDetailsCell: UITableViewCell {
     }
 
     func configure(track: Track) {
-        self.trackNumber.text = String(track.trackNumber)
-        self.trackTitle.text = track.trackTitle
-        self.albumTitle.text = track.albumTitle
+//        self.trackNumber.text = String(track.)
+//        self.trackTitle.text = track.trackTitle
+//        self.albumTitle.text = track.albumTitle
        
         }
     }

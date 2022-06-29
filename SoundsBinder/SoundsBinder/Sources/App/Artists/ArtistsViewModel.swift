@@ -7,13 +7,15 @@
 
 import Foundation
 
+protocol ArtistsViewModelDelegate: AnyObject {
+    func didSelect(tracklist: String)
+}
 
 final class ArtistsViewModel {
     
     // MARK: - Private Properties
     
     private let artistRepository: ArtistsRepositoryType
-    private let albumRepository: AlbumRepositoryType
     
     private var artists: [Artist] = [] {
         didSet {
@@ -26,13 +28,13 @@ final class ArtistsViewModel {
             album?(tracks)
         }
     }
-    private var delegate: ArtistViewControllerDelegate?
+
+    private weak var delegate: ArtistsViewModelDelegate?
 
     // MARK: - Init
     
-    init(artistRepository: ArtistsRepositoryType, albumRepository: AlbumRepositoryType, delegate: ArtistViewControllerDelegate) {
+    init(artistRepository: ArtistsRepositoryType, delegate: ArtistsViewModelDelegate) {
         self.artistRepository = artistRepository
-        self.albumRepository = albumRepository
         self.delegate = delegate
     }
     
@@ -41,7 +43,6 @@ final class ArtistsViewModel {
     func viewDidLoad() {
         screenTitle?("Artists")
         artists = []
-        //artist = Artist(id: 1, name: "artist", pictureMedium: "picture", tracklist: "tracklist")
     }
     
     func didPressSearch(for name: String) {
@@ -60,15 +61,8 @@ final class ArtistsViewModel {
             print("FatalError")
             return
         }
-        //self.artist = artists[index]
-        albumRepository.searchAlbum(for: artists[index].tracklist) { [weak self] result in
-            switch result {
-            case .success(let tracks):
-                self?.tracks = tracks
-            case .failure(let error):
-                assertionFailure(error.localizedDescription)
-            }
-        }
+        let artist = artists[index]
+        delegate?.didSelect(tracklist: artist.tracklist)
     }
     
     // MARK: - Outputs
@@ -76,5 +70,4 @@ final class ArtistsViewModel {
     var screenTitle: InputClosure<String>?
     var items: InputClosure<[Artist]>?
     var album: InputClosure<[Track]>?
-    
 }

@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol AlbumRepositoryType {
-    func searchAlbum(for url: String, callback: @escaping (Result<[Track], Error>) -> Void)
+    func searchAlbum(for url: URL, callback: @escaping (Result<[Track], Error>) -> Void)
 }
 
 final class AlbumRepository: AlbumRepositoryType {
@@ -24,10 +24,9 @@ final class AlbumRepository: AlbumRepositoryType {
         self.client = client
     }
   
-    func searchAlbum(for url: String, callback: @escaping (Result<[Album], Error>) -> Void) {
-        print(url)
-        let fileUrl = URL(string: url)
-        let request = URLRequest(url: fileUrl!)
+    func searchAlbum(for url: URL, callback: @escaping (Result<[Track], Error>) -> Void) {
+       
+        let request = URLRequest(url: url)
         client.send(request: request, token: token) { result in
             switch result {
             case .success(let data):
@@ -39,13 +38,13 @@ final class AlbumRepository: AlbumRepositoryType {
         }
         }
     
-    private func handle(data: Data) -> [Album] {
+    private func handle(data: Data) -> [Track] {
         guard let result: Result<AlbumResponse, ParserError> = try? self.parser.processCodableResponse(from: data) else {
             return []
         }
         switch result {
         case .success(let response):
-            return response.tracks.map { Album(trackNumber: <#T##Int#>, trackTitle: <#T##String#>, albumTitle: <#T##String#>) }
+            return response.tracks.map { Track(item: $0) }
         case .failure(let error):
             assertionFailure(error.localizedDescription)
             print(error)
@@ -56,7 +55,12 @@ final class AlbumRepository: AlbumRepositoryType {
   
 
 }
-    
+             extension Track {
+                 init(item: AlbumResponse.Track) {
+                     self.title = item.title
+                     self.duration = item.duration
+                 }
+             }
     
    
 

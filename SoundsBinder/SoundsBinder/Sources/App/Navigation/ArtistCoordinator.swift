@@ -12,12 +12,13 @@ final class ArtistCoordinator {
     
     // MARK: - Properties
     
-    var presenter: UINavigationController
-    var screens: Screens
+    private let presenter: UIWindow
+    private let screens: Screens
+    private var navigationController: UINavigationController?
     
     // MARK: - Initialisers
     
-    init(presenter: UINavigationController, context: Context) {
+    init(presenter: UIWindow, context: Context) {
         self.presenter = presenter
         self.screens = Screens(context: context)
     }
@@ -30,13 +31,21 @@ final class ArtistCoordinator {
     
     private func showSearch() {
         let viewController = screens.createArtistViewController(delegate: self)
-        presenter.viewControllers = [viewController]
+        navigationController = UINavigationController(rootViewController: viewController)
+        guard let navigationController = navigationController else {
+            return
+        }
+        presenter.rootViewController = navigationController
+    }
+
+    private func showAlbumView(for trackList: String) {
+        let viewController = screens.createAlbumViewController(trackList: trackList)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
-extension ArtistCoordinator: ArtistViewControllerDelegate {
-    func didSelect(artist: Artist) {
-        let viewController = screens.createAlbumViewController()
-        presenter.pushViewController(viewController,animated: false)
+extension ArtistCoordinator: ArtistsViewModelDelegate {
+    func didSelect(tracklist: String) {
+        showAlbumView(for: tracklist)
     }
 }
