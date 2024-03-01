@@ -13,8 +13,8 @@ var mockHTTPClient: HTTPClient {
     return HTTPClient(engine: .urlSession(.default))
 }
 
-var mockContentRequestBuilder: DZRRequestBuilder {
-    return DZRRequestBuilder(url: URL(string: "https://api.deezer.com/")!)
+var mockContentRequestBuilder: SBRequestBuilder {
+    return SBRequestBuilder(url: URL(string: "https://api.deezer.com/")!)
 }
 
 var mockAudioPlayer: AudioPlayer {

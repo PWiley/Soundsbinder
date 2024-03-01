@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,11 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         imageCache = NSCache<Key, Object>()
         
-        FirebaseApp.configure()
-        
         let client = HTTPClient(engine: .urlSession(.default))
 
-        let requestBuilder = DZRRequestBuilder()
+        let requestBuilder = SBRequestBuilder()
 
         let imageRepository = ImageRepository(networkClient: client)
         let imageProvider = ImageProvider(repository: imageRepository,
@@ -47,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator = AppCoordinator(presenter: window!,
                                      context: context)
         coordinator.start()
+        FirebaseApp.configure()
         return true
     }
 }

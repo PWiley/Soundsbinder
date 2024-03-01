@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBghiEKzkX6-3PId74zsT8zlUFILLUVB4A</string>
+	<string>AIzaSyBKGXRsIRXHw-Iucs1LsPNAD6L0ksQhuV0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>10740921232</string>
+	<string>66195211234</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.deutschekapital.soundsbinder</string>
+	<string>com.deutsckekapital.soundsbinder</string>
 	<key>PROJECT_ID</key>
-	<string>soundsbinder-829ab</string>
+	<string>soundsbinder-5fb0b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>soundsbinder-829ab.appspot.com</string>
+	<string>soundsbinder-5fb0b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:10740921232:ios:7818ff38474521df697915</string>
+	<string>1:66195211234:ios:1c36e50e181b173bc66fbb</string>
 </dict>
 </plist>

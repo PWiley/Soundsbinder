@@ -1,5 +1,5 @@
 //
-//  DZRRequestBuilder.swift
+//  SBRequestBuilder.swift
 //  Soundsbinder
 //
 //  Created by Patrick Wiley on 16/08/2022.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class DZRRequestBuilder {
+final class SBRequestBuilder {
 
     // MARK: - Private properties
 

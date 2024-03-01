@@ -19,7 +19,7 @@ final class ArtistSearchRepository: ArtistSearchRepositoryType {
 
     private let networkClient: HTTPClient
 
-    private let requestBuilder: DZRRequestBuilder
+    private let requestBuilder: SBRequestBuilder
 
     private let urlRequestBuilder = URLRequestBuilder()
 
@@ -27,7 +27,7 @@ final class ArtistSearchRepository: ArtistSearchRepositoryType {
 
     // MARK: - Init
 
-    init(networkClient: HTTPClient, requestBuilder: DZRRequestBuilder) {
+    init(networkClient: HTTPClient, requestBuilder: SBRequestBuilder) {
         self.networkClient = networkClient
         self.requestBuilder = requestBuilder
     }

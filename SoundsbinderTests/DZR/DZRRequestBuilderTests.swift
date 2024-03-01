@@ -1,5 +1,5 @@
 //
-//  DZRRequestBuilderTests.swift
+//  SBRequestBuilderTests.swift
 //  SoundsbinderTests
 //
 //  Created by Patrick Wiley on 16/08/2022.
@@ -9,11 +9,11 @@
 import XCTest
 @testable import Soundsbinder
 
-final class DZRRequestBuilderTests: XCTestCase {
+final class SBRequestBuilderTests: XCTestCase {
 
     func testThatBuildRequestCorrectly() {
         let url = URL(string: "https://api.deezer.com/")!
-        let builder = DZRRequestBuilder(url: url)
+        let builder = SBRequestBuilder(url: url)
 
         let result = builder.buildRequest(for: MockEndPoint())
 

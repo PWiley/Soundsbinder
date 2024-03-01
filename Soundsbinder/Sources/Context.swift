@@ -14,7 +14,7 @@ final class Context {
 
     let networkClient: HTTPClient
 
-    let requestBuilder: DZRRequestBuilder
+    let requestBuilder: SBRequestBuilder
 
     let imageProvider: ImageProvider
 
@@ -22,7 +22,7 @@ final class Context {
 
     // MARK: - Initializer
 
-    init(networkClient: HTTPClient, requestBuilder: DZRRequestBuilder, imageProvider: ImageProvider, audioPlayer: AudioPlayer) {
+    init(networkClient: HTTPClient, requestBuilder: SBRequestBuilder, imageProvider: ImageProvider, audioPlayer: AudioPlayer) {
         self.networkClient = networkClient
         self.requestBuilder = requestBuilder
         self.imageProvider = imageProvider
