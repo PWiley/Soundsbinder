@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBghiEKzkX6-3PId74zsT8zlUFILLUVB4A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>10740921232</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.deutsckekapital.soundsbinder</string>
+	<key>PROJECT_ID</key>
+	<string>soundsbinder-829ab</string>
+	<key>STORAGE_BUCKET</key>
+	<string>soundsbinder-829ab.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:10740921232:ios:0cc9f71850fa7b44697915</string>
+</dict>
+</plist>
