@@ -82,7 +82,8 @@
 		2FFF63B6228B0014003529B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFF63B4228B0014003529B2 /* LaunchScreen.storyboard */; };
 		3C3D75DC2B91FDC600059CF8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3D75DB2B91FDC600059CF8 /* FirebaseAnalytics */; };
 		3C3D75DE2B91FDC600059CF8 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3D75DD2B91FDC600059CF8 /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		3CC0E02F2B91FB4C003D9F2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CC0E02E2B91FB4C003D9F2A /* GoogleService-Info.plist */; };
+		3C3D75E52B920A5000059CF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3D75E42B920A5000059CF8 /* GoogleService-Info.plist */; };
+		3C3D75E62B920A5000059CF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3D75E42B920A5000059CF8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,7 +174,7 @@
 		2FFF63B7228B0014003529B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFF63BC228B0014003529B2 /* SoundsbinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundsbinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFF63C2228B0014003529B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CC0E02E2B91FB4C003D9F2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C3D75E42B920A5000059CF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,7 +463,7 @@
 		2FFF63AA228B0012003529B2 /* Soundsbinder */ = {
 			isa = PBXGroup;
 			children = (
-				3CC0E02E2B91FB4C003D9F2A /* GoogleService-Info.plist */,
+				3C3D75E42B920A5000059CF8 /* GoogleService-Info.plist */,
 				2FFF63CB228B0090003529B2 /* Sources */,
 				2FFF63CC228B0095003529B2 /* Ressources */,
 			);
@@ -603,7 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFF63B6228B0014003529B2 /* LaunchScreen.storyboard in Resources */,
-				3CC0E02F2B91FB4C003D9F2A /* GoogleService-Info.plist in Resources */,
+				3C3D75E52B920A5000059CF8 /* GoogleService-Info.plist in Resources */,
 				2FFF63B3228B0014003529B2 /* Assets.xcassets in Resources */,
 				2FFF63B1228B0012003529B2 /* Artist.storyboard in Resources */,
 			);
@@ -615,6 +616,7 @@
 			files = (
 				2FEE0FD2229673AB006E3DA0 /* README.md in Resources */,
 				2FB7D8ED22943B4F009E61B0 /* daft_punk_preview.mp3 in Resources */,
+				3C3D75E62B920A5000059CF8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
