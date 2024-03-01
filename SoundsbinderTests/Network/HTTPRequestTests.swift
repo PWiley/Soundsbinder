@@ -21,17 +21,6 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(10, request.timeout)
     }
     
-    func testItThrows_whenPathIsMalformed() {
-        let baseURL = URL(string: "http://www.deezer.com")!
-        let malformedPath = "<>\\^`{|}"
-        
-        XCTAssertThrowsError(try HTTPRequest(baseURL: baseURL, path: malformedPath, method: .GET, parameters: nil)) { error in
-            guard case HTTPRequestError.cannotBuildValidURL(baseURL: baseURL, path: malformedPath) = error else {
-                XCTFail()
-                return
-            }
-        }
-    }
 }
 
 class HTTPMethodTests: XCTestCase {

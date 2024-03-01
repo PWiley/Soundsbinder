@@ -564,7 +564,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FFF63A3228B0012003529B2 /* Build configuration list for PBXProject "DeezerExercice" */;
+			buildConfigurationList = 2FFF63A3228B0012003529B2 /* Build configuration list for PBXProject "Soundsbinder" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -905,7 +905,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeezerExercice.app/DeezerExercice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soundsbinder.app/Soundsbinder";
 			};
 			name = Debug;
 		};
@@ -931,14 +931,14 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeezerExercice.app/DeezerExercice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soundsbinder.app/Soundsbinder";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FFF63A3228B0012003529B2 /* Build configuration list for PBXProject "DeezerExercice" */ = {
+		2FFF63A3228B0012003529B2 /* Build configuration list for PBXProject "Soundsbinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FFF63C3228B0014003529B2 /* Debug */,
