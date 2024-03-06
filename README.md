@@ -51,7 +51,7 @@ If your viewModel needs a `Repository`, so you'll need to inject a `RepositoryTy
 
 #### ViewController:
 
-The last layer and not the less important 🙇‍♂️. But as it is mentioned in it's name, a `ViewController` only exists for **control**. So, if you want to test it, you'll only provide UI test, since the logic is extracted in the corresponding `ViewModel`. I recomand to add a custom snapshot to test it correctly. (Not provided in this project).
+The last layer and not the less important 🙇‍♂️. But as it is mentioned in it's name, a `ViewController` only exists for **control**. So, if you want to test it, you'll only provide UI test, since the logic is extracted in the corresponding `ViewModel`. I recommand to add a custom snapshot to test it correctly. (Not provided in this project).
 
 
 #### Tests
